@@ -17,14 +17,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Box bg="white" h="5px" w="100%" />
+        <Box bg="white" h="20px" w="100%" _hover={{bg: "blue"}}/>
         <Container maxW={{ base: "320px", md: "1100px" }} p="16px">
           <Flex p="20px" justifyContent="center" mt={{ base: "5px", lg: "15px" }} gap="20px">
             <Heading fontSize={{ base: '2xl', lg: '5xl' }} color="white">Welcome to JZ's corner</Heading>
           </Flex>
           <Flex justifyContent="space-around" alignItems="center" mt={{ base: "10px", lg: "20px" }}>
             <Text fontSize={{ base: 'sm', lg: '2xl' }} w={{ base: "200px", lg: "600px" }} p="10px" color="white" align={"justify"}>
-              Welcome to my site! Made primarily to practice, not gonna lie. I will be getting data from a NBA API to show some of the teams' general info. Click any of the conference logos to select your team!
+              Welcome to my site! Made primarily to practice, not gonna lie. I will be getting data from a NBA API to show some of the teams' general info. Click any conference logo to select your team!
             </Text>
             <Box w={{ base: "80px", lg: "100px" }} h="auto">
               <AspectRatio ratio={9 / 16} position="relative">
