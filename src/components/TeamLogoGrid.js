@@ -1,5 +1,6 @@
 import { Flex, SimpleGrid, AspectRatio } from "@chakra-ui/react";
 import Image from "next/image";
+import { Slugify } from "@/utilities/slugify";
 
 import Link from "next/link";
 
@@ -31,7 +32,7 @@ export function TeamLogoGrid({ choice, teams }) { //DEESTRUCTURAAAR PARCERO (fun
                                 <AspectRatio position={"relative"} width={150} ratio={1} p="5px">
                                     <Image alt={`${team} logo`} fill={true} style={{
                                         objectFit: "contain"
-                                    }} src={`/images/${(choice) ? "east" : "west"}/${team.name}.png`} />
+                                    }} src={`/images/${(choice) ? "east" : "west"}/${Slugify(team.name)}.png`} />
                                 </AspectRatio>
                             </Link>
                         )
