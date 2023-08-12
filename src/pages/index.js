@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import axios from 'axios';
 
 
 import { AspectRatio, Box, Container, Flex, Heading, Text } from '@chakra-ui/react'
@@ -7,7 +8,9 @@ import { ConfeSelection } from '@/components/ConfeSelection'
 
 
 
-export default function Home() {
+export default function Home({teams}) {
+
+
   return (
     <>
       <Head>
@@ -17,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Box bg="white" h="20px" w="100%" _hover={{bg: "blue"}}/>
+        <Box bg="white" h="20px" w="100%"/>
         <Container maxW={{ base: "320px", md: "1100px" }} p="16px">
           <Flex p="20px" justifyContent="center" mt={{ base: "5px", lg: "15px" }} gap="20px">
             <Heading fontSize={{ base: '2xl', lg: '5xl' }} color="white">Welcome to JZ's corner</Heading>
@@ -33,8 +36,31 @@ export default function Home() {
             </Box>
           </Flex>
         </Container>
-        <ConfeSelection />
+        <ConfeSelection teams={teams} />
       </main>
     </>
   )
+}
+
+/**
+ * 
+ * @returns Returns an object
+ */
+export const getServerSideProps = async(context) => {
+
+    const response = await axios.get("https://www.balldontlie.io/api/v1/teams");
+    const teams = response.data.data;
+
+    
+    // const test = newData.data.map((team) => {
+    //   return team.city
+    // });
+    // console.log(test);
+
+    // console.log(teams);
+
+    return {props: {
+        teams
+    }}
+
 }
