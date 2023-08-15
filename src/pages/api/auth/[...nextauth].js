@@ -1,25 +1,25 @@
-import NextAuth from "next-auth/next";
-import Providers from "next-auth/providers";
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 
 export const authOptions = {
 
     providers: [
-        Providers.Credentials({
+        CredentialsProvider({
             // The name to display on the sign-in form (e.g. "Sign in with...")
             name: "Credentials",
             credentials: {
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
-            authorize: async (credentials) => {
+            async authorize(credentials) {
 
-                if (credentials.username === "MadDog" && credentials.password === "12345") {
-
-                    return { id: 1, username: "MadDog" };
+                if (credentials.username === "test" && credentials.password === "12345") {
+                    const user = {id: 1, username: "test"}
+                    console.log(user);
+                    return user;
                 }
-
-                return null;
+                return Promise.resolve(null);
             },
         }),
     ],
@@ -31,16 +31,28 @@ export const authOptions = {
     callbacks: {
 
         async jwt(token, user) {
+            console.log('Token before modification:', token);
             if (user) {
                 token.id = user.id;
                 token.username = user.username;
             }
+            console.log('Token after modification:', token);
 
             return token;
         },
-
+        
         async session(session, token) {
-            session.user = token;
+            
+            console.log('Session before modification:', session);
+            console.log('Token after modification:', token);
+
+            session.user = {
+                    id: token.id,
+                    username: token.username,
+                };
+            console.log('Session after modification:', session);
+
+
             return session;
         },
     },

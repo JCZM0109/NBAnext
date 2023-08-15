@@ -6,7 +6,7 @@ function SignIn() {
     const {data: session} = useSession();
 
     const handleSignIn = () => {
-        signIn("credentials", {username: "MadDog", password: "12345"});
+        signIn("credentials", {username: "test", password: "12345"});
     }
 
     if (session) {
