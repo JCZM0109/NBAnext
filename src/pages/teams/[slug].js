@@ -1,5 +1,7 @@
 import { Heading, Text } from "@chakra-ui/react";
-import axios from "axios"
+import Image from "next/image";
+import axios from "axios";
+import { Slugify } from "@/utilities/slugify";
 
 
 
@@ -8,6 +10,7 @@ export default function TeamPage({team}) {
     return (
         <>
         <Heading>{team.full_name}</Heading>
+        <Image width={100} height={100} alt={`${team.full_name} logo`} src={`/images/${team.conference}/${Slugify(team.name)}.png`} ></Image>
         <Text>{team.city}</Text>
         <Text>{team.conference}</Text>
         <Text>{team.abbreviation}</Text>
