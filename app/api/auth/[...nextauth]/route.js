@@ -64,7 +64,7 @@ export const authOptions = {
                 return {
                     ...token, 
                     id: user.id,
-                    address: user.address,
+                    team: user.team,
                 };
             }
             return token;
@@ -78,7 +78,7 @@ export const authOptions = {
                 user: {
                     ...session.user,
                     id: token.id,
-                    address: token.address,
+                    team: token.team,
                 }
             };
 

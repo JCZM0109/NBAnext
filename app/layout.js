@@ -1,3 +1,4 @@
+import AuthProvider from './context/AuthProvider'
 import ChakraProviders from './context/ChakraUIProv'
 import './styles/homepage.css'
 
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ChakraProviders>
-          {children}
+          <AuthProvider>
+            {children}
+          </AuthProvider>
         </ChakraProviders>
       </body>
     </html>
