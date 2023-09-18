@@ -18,12 +18,12 @@ export default function Home() {
           </Text>
         </Box>
         <Box as={Flex} marginX="auto" mt="70px" maxW={200} justifyContent="space-between">
-          <Link href="/register">
+          <Link href="/authentication/register">
             <Button>
               Register
             </Button>
           </Link>
-          <Link href="/login">
+          <Link href="/authentication/login">
             <Button>
               Login
             </Button>

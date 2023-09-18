@@ -1,7 +1,19 @@
-import { extendTheme } from "@chakra-ui/react";
+import { defineStyleConfig, extendTheme } from "@chakra-ui/react";
 import '@fontsource/rubik-mono-one';
 import '@fontsource/staatliches'
 
+
+const Heading = defineStyleConfig({
+    baseStyle: {
+        fontWeight: 'bold',
+        color: 'white',
+    },
+    variants: {
+        clear: {
+            color: 'black'
+        }
+    }
+})
 
 const theme = extendTheme({
     fonts: {
@@ -16,6 +28,9 @@ const theme = extendTheme({
                 },
             },
         },
+    },
+    components: {
+        Heading,
     },
 });
 

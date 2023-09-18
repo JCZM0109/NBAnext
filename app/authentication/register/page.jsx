@@ -42,7 +42,7 @@ export default function RegisterPage() {
             },
         });
         console.log(response);
-        
+        router.push("/authentication/login")
     };
 
     return (
