@@ -9,7 +9,8 @@ import {
     FormHelperText,
     Input,
     Select,
-    Button
+    Button,
+    Center
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -52,12 +53,13 @@ export default function RegisterPage() {
         }} width={{
             base: "200px",
             lg: "700px"
-        }} bgColor="white" mx="auto" mt="100px" position="relative" flexDir="column">
+        }} mx="auto" position="relative" flexDir="column">
             <Heading size={{
                 base: "md",
                 lg: "2xl"
-            }} align="center" borderWidth="5px" borderColor="black" >Register</Heading>
-            <Box w="400px" h="120px">
+            }} align="center" borderWidth="5px" mt="100px" borderColor="black" variant="clear">Register</Heading>
+            <Center>
+            <Box w="400px" h="120px" mt="25px">
                 <FormControl>
                     <form onSubmit={registerUser}>
                         <FormLabel>Name</FormLabel>
@@ -107,6 +109,7 @@ export default function RegisterPage() {
                     </form>
                 </FormControl>
             </Box>
+            </Center>
         </Flex>
     )
 };

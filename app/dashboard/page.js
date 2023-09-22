@@ -17,7 +17,6 @@ export default function dashboardPage() {
 
     const handleSignOut = async() => {
         await signOut({ callbackUrl: 'http://localhost:3000/' }) 
-        console.log(session);
     }
 
 
