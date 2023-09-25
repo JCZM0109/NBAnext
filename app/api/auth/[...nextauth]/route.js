@@ -1,5 +1,5 @@
 import NextAuth from "next-auth/next";
-import CredentialsProvider  from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
@@ -17,16 +17,15 @@ export const authOptions = {
 
             name: "credentials",
             credentials: {
-                username: {label: "Username", type: "text", placeholder: "jsmith"},
-                password: {label: "Password", type: "password"},
-                email: {label: "Email", type: "email"}
+                password: { label: "Password", type: "password" },
+                email: { label: "Email", type: "email" }
             },
 
             async authorize(credentials) { //Here's all the logic for autorizing users
 
                 //check to see if email and password are valid
                 if (!credentials.email || !credentials.password) {
-                    return null;
+                    throw new Error("No email or password");
                 };
 
                 //check if user exists (findUnique from PRISMA)
@@ -37,14 +36,14 @@ export const authOptions = {
                 });
 
                 if (!user) {
-                    return null;
+                    throw new Error("User does not exist");
                 };
 
                 //check if passwords match (bcrypt's compare function, since we hashed it)
                 const passwordMatch = await bcrypt.compare(credentials.password, user.hashedPassword);
 
-                if(!passwordMatch) {
-                    return null;
+                if (!passwordMatch) {
+                    throw new Error("Password does not match");
                 }
 
                 //return user if everything is valid.
@@ -56,13 +55,13 @@ export const authOptions = {
     ],
 
     callbacks: {
-        async jwt({token, user, session}) {
-            console.log("jwt callback", {token, user, session});
+        async jwt({ token, user, session }) {
+            console.log("jwt callback", { token, user, session });
 
             //pass in user ID and address to token,
             if (user) {
                 return {
-                    ...token, 
+                    ...token,
                     id: user.id,
                     team: user.team,
                 };
@@ -70,8 +69,8 @@ export const authOptions = {
             return token;
         },
 
-        async session ({session, token, user}) {
-            console.log("session callback", {session, token, user});
+        async session({ session, token, user }) {
+            console.log("session callback", { session, token, user });
 
             return {
                 ...session,
@@ -95,4 +94,4 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST};
+export { handler as GET, handler as POST };

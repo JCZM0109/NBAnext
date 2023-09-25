@@ -1,12 +1,15 @@
 'use client'
-import { Button, Heading, Flex, Box, FormControl, FormLabel, Input, Center } from "@chakra-ui/react"
+import { Button, Heading, Flex, Box, FormControl, FormLabel, Input, Center, Toast, useToast } from "@chakra-ui/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { NextResponse } from "next/server";
 
 
 
 export default function logInPage() {
+
+    const toast = useToast();
 
     const router = useRouter(); //defino el router para redirección
 
@@ -18,24 +21,36 @@ export default function logInPage() {
     //el loggeo se hace con signIn de next-auth
     const loginUser = async (e) => {
         e.preventDefault();
-        await signIn('credentials', { ...data, redirect: false });
-        router.push("/dashboard");
-    };
+        
+        const { error } = await signIn('credentials', { ...data, redirect: false });
 
-    return (
-        <>
-            <Flex height={{
-                base: "200px",
-                lg: "600px"
-            }} width={{
-                base: "200px",
-                lg: "700px"
-            }} mx="auto" position="relative" flexDir="column">
-                <Heading size={{
-                    base: "md",
-                    lg: "2xl"
-                }} align="center" borderWidth="5px" borderColor="black" variant="clear">Log In</Heading>
-                <Center>
+        if (error) {
+          console.log(error);
+          toast({
+            title: `${error}`,
+            status: 'error',
+            duration: 2500,
+            isClosable: true,
+          });
+        } else {
+          router.push("/dashboard")
+        }
+    }
+
+return (
+    <>
+        <Flex height={{
+            base: "200px",
+            lg: "600px"
+        }} width={{
+            base: "200px",
+            lg: "700px"
+        }} mx="auto" position="relative" flexDir="column">
+            <Heading size={{
+                base: "md",
+                lg: "2xl"
+            }} align="center" borderWidth="5px" borderColor="black" variant="clear">Log In</Heading>
+            <Center>
                 <Box w="400px" h="120px" p="20px" >
                     <FormControl>
                         <form onSubmit={loginUser}>
@@ -64,8 +79,8 @@ export default function logInPage() {
                         </form>
                     </FormControl>
                 </Box>
-                </Center>
-            </Flex>
-        </>
-    )
+            </Center>
+        </Flex>
+    </>
+)
 };

@@ -2,15 +2,24 @@
 
 import { Box, Heading, Text, Button } from "@chakra-ui/react"
 import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation"
 
 export default function dashboardPage() {
 
     const router = useRouter();
 
-    const {data: session, status, update} = useSession();
+    const {data: session, status} = useSession();
 
     console.log(session);
+
+    if (!session) {
+        return(
+                <Box>
+                    <Heading>You're not authorized to access this page :c</Heading>
+                </Box>
+            )
+    }
 
     const userName = session?.user?.name || "Guest";
     const userTeam = session?.user?.team || "";

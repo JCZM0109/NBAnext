@@ -2,13 +2,11 @@
 
 import { Box, Container, Heading, Text, Flex, Button } from "@chakra-ui/react"
 import Link from "next/link"
-import { getTeamList } from "./services"
 
 
 
 export default function Home() {
 
-  const teams = getTeamList();
 
   return (
     <Container size="xl" centerContent>

@@ -1,8 +1,33 @@
 import axios from "axios";
 
-export const getTeamList = async() => {
-    const response = await axios.get("https://www.balldontlie.io/api/v1/teams");
-    console.log(response.data.data)
-    return response
-}
 
+// export const getTeamList = async() => {
+//     const response = await axios.get("https://www.balldontlie.io/api/v1/teams/14");
+//     // console.log(response.data.data)
+//     return response.data
+// }
+
+export const getData = async () => {
+
+    const response = await axios.get("https://www.balldontlie.io/api/v1/teams");
+    // console.log(response.data.data[0])
+    return response.data
+    // return response.data
+};
+
+
+// const [teamsList, setTeamsList] = useState({
+//     full_name: "Edgar"
+// })
+
+// const fetchTeamList = async () => {
+//     const teamsData = await getData();
+//     // console.log(teamsData)
+//     setTeamsList(teamsData.data);
+// }
+
+// useEffect(() => {
+//     fetchTeamList();
+// }, []);
+
+// console.log(teamsList);
