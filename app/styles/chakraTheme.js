@@ -21,16 +21,12 @@ const theme = extendTheme({
         body: `'Staatliches', sans-serif`,
     },
     components: {
-        Container: {
-            sizes: {
-                xl: {
-                    maxW: "1200px",
-                },
-            },
-        },
-    },
-    components: {
         Heading,
+                Container: {
+            baseStyle: {
+                maxW: "1200px"
+            }
+        },
     },
 });
 

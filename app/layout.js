@@ -11,6 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel='icon' type='image/png' href='@icons8-basketball-16.png'/>
+      </head>
       <body>
         <ChakraProviders>
           <AuthProvider>

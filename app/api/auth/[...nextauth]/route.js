@@ -35,6 +35,7 @@ export const authOptions = {
                     }
                 });
 
+                //if no user was found throw error to stop sign in process
                 if (!user) {
                     throw new Error("User does not exist");
                 };
@@ -43,7 +44,7 @@ export const authOptions = {
                 const passwordMatch = await bcrypt.compare(credentials.password, user.hashedPassword);
 
                 if (!passwordMatch) {
-                    throw new Error("Password does not match");
+                    throw new Error("Passwords don't match");
                 }
 
                 //return user if everything is valid.

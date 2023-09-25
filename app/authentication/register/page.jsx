@@ -81,71 +81,66 @@ export default function RegisterPage() {
     };
 
     return (
-        <Flex height={{
-            base: "200px",
-            lg: "600px"
-        }} width={{
-            base: "200px",
-            lg: "700px"
-        }} mx="auto" position="relative" flexDir="column">
-            <Heading size={{
-                base: "md",
-                lg: "2xl"
-            }} align="center" borderWidth="5px" mt="100px" borderColor="black" variant="clear">Register</Heading>
-            <Center>
-                <Box w="400px" h="120px" mt="25px">
-                    <FormControl>
-                        <form onSubmit={registerUser}>
-                            <FormLabel>Name</FormLabel>
-                            <Input
-                                id="name"
-                                name="name"
-                                type="text"
-                                required
-                                value={userData.name}
-                                onChange={(e) => { setUserData({ ...userData, name: e.target.value }) }}
-                            />
-                            <FormLabel>Email</FormLabel>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="email"
-                                required
-                                autoComplete="email"
-                                value={userData.email}
-                                onChange={(e) => { setUserData({ ...userData, email: e.target.value }) }}
-                            />
-                            <FormLabel>Password</FormLabel>
-                            <Input
-                                id="password"
-                                name="password"
-                                type="password"
-                                required
-                                value={userData.password}
-                                onChange={(e) => { setUserData({ ...userData, password: e.target.value }) }}
-                            />
-                            <FormLabel>Team</FormLabel>
-                            <Select
-                                placeholder="Select your favorite team"
-                                value={userData.team}
-                                id="team"
-                                name="team"
-                                type="text"
-                                onChange={(e) => { setUserData({ ...userData, team: e.target.value }) }}
-                            >
-                                {
-                                    teamsFullName.map((team, key) => {
-                                        return <option key={key}>{team}</option>
-                                    })
-                                }
-                            </Select>
-                            <Box mt="10px">
-                                <Button type="submit">Register</Button>
-                            </Box>
-                        </form>
-                    </FormControl>
-                </Box>
-            </Center>
-        </Flex>
+        <>
+            <Box borderWidth="5px"
+                borderColor="black"
+            >
+                <Heading size={{
+                    base: "md",
+                    lg: "2xl"
+                }} align="center"
+                    variant="clear">Register</Heading>
+            </Box>
+            <FormControl mt="20px">
+                <form onSubmit={registerUser}>
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        value={userData.name}
+                        onChange={(e) => { setUserData({ ...userData, name: e.target.value }) }}
+                    />
+                    <FormLabel mt="10px">Email</FormLabel>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={userData.email}
+                        onChange={(e) => { setUserData({ ...userData, email: e.target.value }) }}
+                    />
+                    <FormLabel mt="10px">Password</FormLabel>
+                    <Input
+                        id="password"
+                        name="password"
+                        type="password"
+                        required
+                        value={userData.password}
+                        onChange={(e) => { setUserData({ ...userData, password: e.target.value }) }}
+                    />
+                    <FormLabel mt="10px">Team</FormLabel>
+                    <Select
+                        placeholder="Select your favorite team"
+                        value={userData.team}
+                        id="team"
+                        name="team"
+                        type="text"
+                        onChange={(e) => { setUserData({ ...userData, team: e.target.value }) }}
+                    >
+                        {
+                            teamsFullName.map((team, key) => {
+                                return <option key={key}>{team}</option>
+                            })
+                        }
+                    </Select>
+                    <Box mt="10px">
+                        <Button type="submit">Register</Button>
+                    </Box>
+                </form>
+            </FormControl>
+        </>
     )
 };

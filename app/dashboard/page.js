@@ -17,6 +17,7 @@ export default function dashboardPage() {
         return(
                 <Box>
                     <Heading>You're not authorized to access this page :c</Heading>
+                    <Link href={"/"}>Go back to homepage</Link>
                 </Box>
             )
     }
