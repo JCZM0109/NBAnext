@@ -1,12 +1,14 @@
 body {
-    background-image: url('../../public/nba1.jpg') !important;
-    background-size: cover;
+  background-color: black;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     body {
       background-image: url('../../public/nbamobile.jpg') !important;
     }
-  }
+  } */
 
 
+/* 
+  background-image: url('../../public/nba1.jpg') !important;
+  background-size: cover; */

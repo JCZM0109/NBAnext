@@ -14,14 +14,14 @@ export default function dashboardPage() {
 
     console.log(session);
 
-    if (!session) {
-        return (
-            <Center flexDir="column" mt="auto">
-                <Heading>You're not authorized to access this page :c</Heading>
-                <Link href={"/"}>Go back to homepage</Link>
-            </Center>
-        )
-    }
+    // if (!session) {
+    //     return (
+    //         <Center flexDir="column" mt="auto">
+    //             <Heading>You're not authorized to access this page :c</Heading>
+    //             <Link href={"/"}>Go back to homepage</Link>
+    //         </Center>
+    //     )
+    // }
 
     const userName = session?.user?.name || "Guest";
     const userTeam = session?.user?.team || "";
@@ -36,20 +36,24 @@ export default function dashboardPage() {
             <Container>
                 <Grid templateAreas={`"header header"
                               "logo1 logo2"`}
-                    gridTemplateRows={"300px 1fr"}
+                    gridTemplateRows={"400px 1fr"}
                     gridTemplateColumns={"1fr 1fr"}
                     gap="50px">
                     <GridItem area={"header"}>
-                        <Flex gap="50px" justifyContent="space-between" alignItems="center" borderWidth="5px" borderColor="white" p="20px">
+                        <Flex gap="50px" justifyContent="space-between" alignItems="flex-start" p="20px">
                             <Box>
-                                <Heading size="lg">Hey there, {userName}, happy to have you here!</Heading>
-                                <Box>
-                                    <Text color="white">Click the logo to go to the {userTeam} page</Text>
+                                <Heading fontSize="27px">Hey there, {userName}, happy to have you here!</Heading>
+                                <Flex borderWidth="5px" borderColor="white" mt="25px" p="20px" w="400px" mx="auto" flexDir="column" gap="15px" alignItems="center">
                                     <Box>
-                                        <Image width={100} height={100} src="/west/warriors.png"/>
+                                    <Text color="white">Click the logo to go to the {userTeam} page</Text>
                                     </Box>
+                                    <Box>
+                                        <Image width={150} height={150} src={`/${userTeam}.png`} />
+                                    </Box>
+                                </Flex>
+                                <Box mt="30px">
+                                    <Text color="white">Or... click a conference logo to select any team:</Text>
                                 </Box>
-                                <Text color="white">Or... click a conference logo to select any team:</Text>
                             </Box>
                             <Box>
                                 <Button onClick={handleSignOut}>Sign Out</Button>
@@ -62,7 +66,7 @@ export default function dashboardPage() {
                                 <Heading color="white" textAlign="center">East</Heading>
                             </Box>
                             <Box width={300} height={300} mx="auto" position="relative" mt="20px">
-                                <Image fill="true" objectFit="contain" alt="Conference" src="/east/EAST.svg" />
+                                <Image fill="true" objectFit="contain" alt="Conference" src="/EAST.svg" />
                             </Box>
                         </Box>
                     </GridItem>
@@ -72,7 +76,7 @@ export default function dashboardPage() {
                                 <Heading color="white" textAlign="center">West</Heading>
                             </Box>
                             <Box width={300} height={300} mx="auto" position="relative" mt="20px">
-                                <Image fill="true" objectFit="contain" alt="Conference" src="/west/WEST.svg" />
+                                <Image fill="true" objectFit="contain" alt="Conference" src="/WEST.svg" />
                             </Box>
                         </Box>
                     </GridItem>
