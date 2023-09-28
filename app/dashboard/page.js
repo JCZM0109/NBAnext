@@ -27,7 +27,7 @@ export default function dashboardPage() {
     const userTeam = session?.user?.team || "";
 
     const handleSignOut = async () => {
-        await signOut({ callbackUrl: 'http://localhost:3000/' })
+        await signOut({ callbackUrl: '/' })
     }
 
 
