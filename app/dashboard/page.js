@@ -14,20 +14,26 @@ export default function dashboardPage() {
 
     console.log(session);
 
-    // if (!session) {
-    //     return (
-    //         <Center flexDir="column" mt="auto">
-    //             <Heading>You're not authorized to access this page :c</Heading>
-    //             <Link href={"/"}>Go back to homepage</Link>
-    //         </Center>
-    //     )
-    // }
+    if (!session) {
+        return (
+            <Center flexDir="column" mt="auto">
+                <Heading>You're not authorized to access this page :c</Heading>
+                <Link href={"/"}>Go back to homepage</Link>
+            </Center>
+        )
+    }
 
     const userName = session?.user?.name || "Guest";
     const userTeam = session?.user?.team || "";
 
     const handleSignOut = async () => {
-        await signOut({ callbackUrl: '/' })
+        const reqSignOut = await signOut({ redirect: false })
+
+        if (reqSignOut.error) {
+            throw new Error("Can't log out")
+        } else {
+            router.push("/");
+        }
     }
 
 
