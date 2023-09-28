@@ -54,7 +54,7 @@ export default function dashboardPage() {
                                     <Text color="white">Click the logo to go to the {userTeam} page</Text>
                                     </Box>
                                     <Box>
-                                        <Image width={150} height={150} src={`/${userTeam}.png`} />
+                                        <Image width={150} height={150} src={`/${userTeam}.png`} alt={`${userTeam} logo`}/>
                                     </Box>
                                 </Flex>
                                 <Box mt="30px">

@@ -1,9 +1,10 @@
 'use client'
 import { Container } from "@chakra-ui/react";
+import './layout.css'
 
 export default function authPagesLayout({ children }) {
     return (
-        <Container maxW="full" height="100vh" bgColor="black" pt="50px">
+        <Container className="main-layout">
                 {children}
         </Container>
     )
