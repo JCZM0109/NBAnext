@@ -1,0 +1,30 @@
+.gitem-outerbox {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+}
+
+.gitem-headerb {
+    border-width: 5px;
+    margin: 0 auto;
+    border-radius: 50% 20% / 10% 40%;
+    max-width: 200px;
+    padding: 5px;
+}
+
+.gitem-header {
+    color: white;
+}
+
+.gitem-imageb {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto 0;
+    position: relative;
+}
+
+.gitem-image {
+    object-fit: contain;
+}
+
+/* borderRadius="50% 20% / 10% 40%;" */

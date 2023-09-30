@@ -1,6 +1,6 @@
 'use client'
 import { Container } from "@chakra-ui/react";
-import './layout.css'
+import './dashboard.css'
 
 export default function authPagesLayout({ children }) {
     return (

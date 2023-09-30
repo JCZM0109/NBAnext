@@ -1,0 +1,56 @@
+
+.container-auth {
+    max-width: 100%;
+    height: 100vh;
+    background-color: azure;
+    padding-top: 100px;
+}
+
+.flex-authlayout {
+    height: auto;
+    width: 700px;
+    margin: 100px auto 0;
+    flex-direction: column;
+    border-width: 5px;
+    border-color: black;
+    padding: 40px;
+}
+
+.box-linkhome {
+    position: absolute;
+    left: 50px;
+    bottom: 80px;
+}
+
+.link-home {
+    font-size: x-large;
+}
+
+@media only screen and (max-width: 576px) {
+    .flex-authlayout {
+        width: 300px;
+        padding: 15px;
+        margin-top: 70px;
+    }
+    .box-linkhome {
+        left: 35px;
+        top: 50px;
+    }
+    .container-auth {
+        padding-top: 50px;
+    }
+    .link-home{
+        font-size: large;
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1540px) {
+    .container-auth {
+        padding-top: 50px;
+    }
+    .flex-authlayout {
+        width: 600px;
+        padding: 20px;
+        margin-top: 40px;
+    }
+}

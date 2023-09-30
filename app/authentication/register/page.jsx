@@ -16,6 +16,7 @@ import {
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import "./register.css"
 
 const teamsFullName = [
     "Hawks",
@@ -82,16 +83,12 @@ export default function RegisterPage() {
 
     return (
         <>
-            <Box borderWidth="5px"
-                borderColor="black"
+            <Box className="outer-box"
             >
-                <Heading size={{
-                    base: "md",
-                    lg: "2xl"
-                }} align="center"
+                <Heading className="heading-regis"
                     variant="clear">Register</Heading>
             </Box>
-            <FormControl mt="20px">
+            <FormControl className="div-formr">
                 <form onSubmit={registerUser}>
                     <FormLabel>Name</FormLabel>
                     <Input
@@ -102,7 +99,7 @@ export default function RegisterPage() {
                         value={userData.name}
                         onChange={(e) => { setUserData({ ...userData, name: e.target.value }) }}
                     />
-                    <FormLabel mt="10px">Email</FormLabel>
+                    <FormLabel className="label-form">Email</FormLabel>
                     <Input
                         id="email"
                         name="email"
@@ -112,7 +109,7 @@ export default function RegisterPage() {
                         value={userData.email}
                         onChange={(e) => { setUserData({ ...userData, email: e.target.value }) }}
                     />
-                    <FormLabel mt="10px">Password</FormLabel>
+                    <FormLabel className="label-form">Password</FormLabel>
                     <Input
                         id="password"
                         name="password"
@@ -121,7 +118,7 @@ export default function RegisterPage() {
                         value={userData.password}
                         onChange={(e) => { setUserData({ ...userData, password: e.target.value }) }}
                     />
-                    <FormLabel mt="10px">Team</FormLabel>
+                    <FormLabel className="label-form">Team</FormLabel>
                     <Select
                         placeholder="Select your favorite team"
                         value={userData.team}
@@ -136,8 +133,8 @@ export default function RegisterPage() {
                             })
                         }
                     </Select>
-                    <Box mt="10px">
-                        <Button type="submit">Register</Button>
+                    <Box className="box-buttonr">
+                        <Button className="button-register" type="submit">Register</Button>
                     </Box>
                 </form>
             </FormControl>

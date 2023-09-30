@@ -1,0 +1,33 @@
+.outer-box {
+    border-width: 5px;
+    border-color: black;
+    background-color: black;
+}
+
+.heading-regis {
+    font-size: 48px;
+    text-align: center; 
+    color: azure;
+}
+
+.div-formr {
+    margin-top: 20px;
+}
+
+.label-form {
+    margin-top: 10px;
+}
+
+.button-register:hover {
+    background-color: rgb(244, 118, 118);
+}
+
+.box-buttonr {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .heading-regis {
+        font-size: 32px;
+    }
+}

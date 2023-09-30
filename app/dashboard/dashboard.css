@@ -1,0 +1,44 @@
+.main-layout {
+    padding-top: 50px;
+}
+
+.grid-dashb {
+    gap: 50px;
+    grid-template-areas: "header header"
+                          "logo1 logo2";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flex-gridheader {
+    gap: 50px;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+.header-flex {
+    font-size: 27px;
+}
+
+.flex-userteamb {
+    border-width: 5px;
+    border-color: white;
+    margin: 25px auto 0;
+    padding: 20px;
+    width: 400px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.text-userteamb {
+    color: white;
+}
+
+.box-extratext {
+    margin-top: 30px;
+}
+
+.extratext {
+    color: white;
+}

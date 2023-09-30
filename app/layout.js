@@ -1,6 +1,6 @@
 import AuthProvider from './context/AuthProvider'
 import ChakraProviders from './context/ChakraUIProv'
-import './styles/homepage.css'
+import './layout.css'
 
 
 export const metadata = {

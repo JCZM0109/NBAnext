@@ -1,0 +1,33 @@
+.outer-box {
+    border-width: 5px;
+    border-color: black;
+    background-color: black;
+}
+
+.heading-login {
+    font-size: 48px;
+    text-align: center;
+    color: azure; 
+}
+
+.button-login:hover {
+    background-color: rgb(244, 118, 118);
+}
+
+.box-buttonl {
+    margin-top: 20px;
+}
+
+.div-forml {
+    margin-top: 20px;
+}
+
+.label-passl {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .heading-login {
+        font-size: 32px;
+    }
+}

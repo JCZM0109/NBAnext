@@ -1,18 +1,19 @@
 'use client'
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Box, Text } from "@chakra-ui/react";
+import './layout.css'
+import Link from "next/link";
 
 export default function authPagesLayout({ children }) {
     return (
-        <Container maxW="full" height="100vh" bgColor="azure" pt="100px">
-            <Flex height={{
-                base: "auto",
-                md: "auto"
-            }} width={{
-                base: "300px",
-                md: "700px"
-            }} mx="auto" mt="100px" flexDir="column" borderWidth="5px" borderColor="black" p={{ base: "15px", lg: "40px" }}>
+        <Container className="container-auth">
+            <Flex className="flex-authlayout">
                 {children}
             </Flex>
+            <Box className="box-linkhome">
+                <Link href="/">
+                    <Text className="link-home">Go back to home page</Text>
+                </Link>
+            </Box>
         </Container>
     )
 }

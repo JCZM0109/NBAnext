@@ -1,0 +1,65 @@
+.homep-container {
+    background-image: url('../public/nba1.jpg') !important;
+    background-size: cover;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.homep-flex {
+    margin-top: 80px;
+    padding: 15px;
+    flex-direction: column;
+}
+
+.homep-header {
+    font-size: 64px;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.homep-textbox {
+    max-width: 500px;
+    margin: 120px auto 0;
+    background-color: black;
+    padding: 20px;
+    text-align: justify;
+}
+
+.homep-textb {
+    color: white;
+    font-size: x-large;
+}
+
+.homep-buttonb {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    gap: 50px;
+    margin: 50px auto 0;
+}
+
+
+@media (max-width: 576px) {
+    .homep-container {
+      background-image: url('../public/nbamobile.jpg') !important;
+    }
+    .homep-flex {
+        margin-top: 50px;
+    }
+    .homep-header {
+        font-size: x-large;
+        text-wrap: wrap;
+    }
+    .homep-textbox {
+        max-width: 250px;
+        margin-top: 60px;
+    }
+    .homep-textb {
+        font-size: medium;
+    }
+    .homep-buttonb {
+        gap: 20px;
+        max-width: 200px;
+        margin-top: 30px;
+    }
+  }

@@ -1,9 +1,9 @@
 'use client'
-import { Button, Heading, Flex, Box, FormControl, FormLabel, Input, Center, Toast, useToast } from "@chakra-ui/react"
+import { Button, Heading, Flex, Box, FormControl, FormLabel, Input, useToast } from "@chakra-ui/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { NextResponse } from "next/server";
+import './login.css'
 
 
 
@@ -39,17 +39,11 @@ export default function logInPage() {
 
     return (
         <>
-            <Box borderWidth="5px"
-                borderColor="black"
+            <Box className="outer-box"
             >
-                <Heading size={{
-                    base: "md",
-                    lg: "2xl"
-                }}
-                    align="center"
-                    variant="clear">Login</Heading>
+                <Heading className="heading-login" variant="clear">Login</Heading>
             </Box>
-            <FormControl>
+            <FormControl className="div-forml">
                 <form onSubmit={loginUser}>
                     <FormLabel>Email</FormLabel>
                     <Input
@@ -61,7 +55,7 @@ export default function logInPage() {
                         value={data.email}
                         onChange={(e) => { setData({ ...data, email: e.target.value }) }}
                     />
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="label-passl">Password</FormLabel>
                     <Input
                         id="password"
                         name="password"
@@ -70,8 +64,8 @@ export default function logInPage() {
                         value={data.password}
                         onChange={(e) => { setData({ ...data, password: e.target.value }) }}
                     />
-                    <Box mt="10px">
-                        <Button type="submit" _hover={{ bg: "red.200" }}>Log in!</Button>
+                    <Box className="box-buttonl">
+                        <Button type="submit" className="button-login">Log in!</Button>
                     </Box>
                 </form>
             </FormControl>
