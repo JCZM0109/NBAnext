@@ -22,9 +22,14 @@ const theme = extendTheme({
     },
     components: {
         Heading,
-                Container: {
+        Container: {
             baseStyle: {
                 maxW: "1400px"
+            },
+            sizes: {
+                sm: {
+                    maxW: "370px"
+                }
             }
         },
     },

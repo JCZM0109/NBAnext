@@ -43,24 +43,26 @@ export default function dashboardPage() {
 
     return (
         <>
-            <Container>
+            <Container className="cont-dashb">
                 <Grid className="grid-dashb">
                     <GridItem area={"header"}>
                         <Flex className="flex-gridheader">
-                            <Box>
+                            <Box className="flex-boxt">
                                 <Heading className="header-flex">Hey there, {userName}, happy to have you here!</Heading>
                                 <Flex className="flex-userteamb">
                                     <Box>
-                                        <Text className="text-userteamb">Click the logo to go to the {userTeam} page</Text>
+                                        <Text className="text-userteamb">Click the logo below to go to the {userTeam} page</Text>
                                     </Box>
-                                    <Image width={150} height={150} src={`/${userTeam}.png`} alt={`${userTeam} logo`} />
+                                    <Box className="flex-boximg">
+                                        <Image fill="true" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
+                                    </Box>
                                 </Flex>
                                 <Box className="box-extratext">
                                     <Text className="extratext">Or... click a conference logo to select any team:</Text>
                                 </Box>
                             </Box>
                             <Box>
-                                <Button onClick={handleSignOut}>Sign Out</Button>
+                                <Button size={{base: "sm", lg: "lg"}} onClick={handleSignOut}>Sign Out</Button>
                             </Box>
                         </Flex>
                     </GridItem>

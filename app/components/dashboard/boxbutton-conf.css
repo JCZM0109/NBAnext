@@ -1,0 +1,48 @@
+.gitem-imageb {
+    margin-top: 50px;
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.gitem-image {
+    object-fit: contain;
+
+}
+
+.gitem-imageb:hover {
+    -webkit-filter: grayscale(1) invert(1); 
+    filter: grayscale(1) invert(1);
+    width: 480px;
+    height: 480px;
+    margin-top: 35px;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1540px) {
+
+    .gitem-imageb {
+        width: 260px;
+        height: 260px;
+        margin-top: 18px;
+    }
+
+    .gitem-imageb:hover {
+        width: 280px;
+        height: 280px;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 576px) { 
+    .gitem-imageb {
+        margin-top: 10px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .gitem-imageb:hover {
+        width: 220px;
+        height: 220px;
+        margin-top: 12px;
+    }
+}

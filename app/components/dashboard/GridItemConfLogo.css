@@ -2,11 +2,13 @@
     max-width: 400px;
     max-height: 400px;
     margin: 0 auto;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 .gitem-headerb {
     border-width: 5px;
-    margin: 0 auto;
     border-radius: 50% 20% / 10% 40%;
     max-width: 200px;
     padding: 5px;
@@ -16,15 +18,17 @@
     color: white;
 }
 
-.gitem-imageb {
-    width: 300px;
-    height: 300px;
-    margin: 20px auto 0;
-    position: relative;
+@media only screen and (min-width: 900px) and (max-width: 1540px) {
+
+    .gitem-header {
+        font-size: 25px;
+    }
 }
 
-.gitem-image {
-    object-fit: contain;
+@media (max-width: 576px) { 
+    .gitem-outerbox {
+        width: auto;
+        height: auto;
+        margin-bottom: 10px;
+    }
 }
-
-/* borderRadius="50% 20% / 10% 40%;" */
