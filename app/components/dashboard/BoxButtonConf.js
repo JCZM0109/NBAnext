@@ -30,7 +30,7 @@ export default function BoxButtonConf({ area }) {
                         <DrawerCloseButton />
                         <DrawerBody>
                             <Box width={200} h={200}>
-                                <Heading color="black">Tu cucha</Heading>
+                                <Heading color="black">{area == "logo1" ? "East" : "West"}</Heading>
                             </Box>
                         </DrawerBody>
                     </DrawerContent>
