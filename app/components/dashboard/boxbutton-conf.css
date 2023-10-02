@@ -3,6 +3,7 @@
     width: 400px;
     height: 400px;
     position: relative;
+    border-radius: 60% 60%;
 }
 
 .gitem-image {

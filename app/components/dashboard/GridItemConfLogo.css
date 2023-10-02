@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    
 }
 
 .gitem-headerb {
@@ -12,6 +13,7 @@
     border-radius: 50% 20% / 10% 40%;
     max-width: 200px;
     padding: 5px;
+    background-color: black;
 }
 
 .gitem-header {

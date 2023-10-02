@@ -13,7 +13,7 @@ export default function GridItemConfLogo({ area }) {
     return (
         <GridItem area={area}>
             <Flex className="gitem-outerbox">
-                <Box borderColor={(area == "logo1") ? "blue" : "red"} className="gitem-headerb">
+                <Box borderColor={(area == "logo1") ? "rgba(9, 82, 156, 1)" : "rgba(237, 23, 75, 1)"} className="gitem-headerb">
                     <Heading textAlign="center" className="gitem-header">{(area == "logo1") ? "East" : "West"}</Heading>
                 </Box>
                 <BoxButtonConf area={area}></BoxButtonConf>
