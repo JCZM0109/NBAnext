@@ -1,4 +1,5 @@
 .main-layout {
+    margin-top: 30px;
     padding-top: 50px;
 }
 
@@ -53,6 +54,7 @@
 .img-userteam {
     object-fit: contain;
 }
+
 
 
 @media only screen and (min-width: 900px) and (max-width: 1540px) {
@@ -124,5 +126,9 @@
         flex-direction: column-reverse;
         padding: 10px;
         align-items: center;
+    }
+    .main-layout {
+        margin-top: 20px;
+        padding-top: 20px;
     }
 }

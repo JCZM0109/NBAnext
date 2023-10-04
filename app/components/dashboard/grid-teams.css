@@ -1,0 +1,21 @@
+.box-grid {
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+}
+
+.grid-teams {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto);
+    gap: 20px;
+}
+
+.box-imageteam {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+.image-team {
+    object-fit: contain;
+}

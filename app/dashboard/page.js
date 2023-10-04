@@ -43,7 +43,6 @@ export default function dashboardPage() {
 
     return (
         <>
-            <Container className="cont-dashb">
                 <Grid className="grid-dashb">
                     <GridItem area={"header"}>
                         <Flex className="flex-gridheader">
@@ -51,10 +50,10 @@ export default function dashboardPage() {
                                 <Heading className="header-flex">Hey there, {userName}, happy to have you here!</Heading>
                                 <Flex className="flex-userteamb">
                                     <Box>
-                                        <Text className="text-userteamb">Click the logo below to go to the {userTeam} page</Text>
+                                        <Text className="text-userteamb">Click the logo below to go to the {userTeam} page:</Text>
                                     </Box>
                                     <Box className="flex-boximg">
-                                        <Image fill="true" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
+                                        <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
                                     </Box>
                                 </Flex>
                                 <Box className="box-extratext">
@@ -69,7 +68,6 @@ export default function dashboardPage() {
                     <GridItemConfLogo area={"logo1"} />
                     <GridItemConfLogo area={"logo2"} />
                 </Grid>
-            </Container>
         </>
     )
 };
