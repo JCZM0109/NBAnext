@@ -10,6 +10,13 @@ export const getData = async () => {
     // return response.data
 };
 
+export const getSpecificTeam = async (id) => {
+    
+    const response = await axios.get(`https://www.balldontlie.io/api/v1/teams/${id}`)
+
+    return response.data
+}
+
 
 // const [teamsList, setTeamsList] = useState({
 //     full_name: "Edgar"

@@ -3,6 +3,8 @@ import { Box, Grid, GridItem, Tab, Text } from "@chakra-ui/react"
 import teamsByConf from "../../utilities/teamsByConf"
 import "./grid-teams.css"
 import Image from "next/image"
+import Link from "next/link"
+import { Slugify } from "@/app/utilities/slugify"
 
 
 export default function GridTeams({ area }) {
@@ -24,9 +26,11 @@ export default function GridTeams({ area }) {
                     return (
                         <>
                             <GridItem key={key}>
-                                <Box className="box-imageteam">
-                                    <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team"/>
-                                </Box>
+                                <Link href={`/teams/${Slugify(team)}`}>
+                                    <Box className="box-imageteam">
+                                        <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team" />
+                                    </Box>
+                                </Link>
                             </GridItem>
                         </>
                     )
