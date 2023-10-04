@@ -19,3 +19,16 @@
 .image-team {
     object-fit: contain;
 }
+
+@media (max-width: 572px) {
+    .grid-teams {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(auto);
+        gap: 15px;
+    }
+
+    .box-imageteam {
+        width: 100px;
+        height: 100px;
+    }
+}

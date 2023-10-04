@@ -43,6 +43,7 @@ export default function dashboardPage() {
 
     return (
         <>
+            <Container className="main-layout">
                 <Grid className="grid-dashb">
                     <GridItem area={"header"}>
                         <Flex className="flex-gridheader">
@@ -61,13 +62,14 @@ export default function dashboardPage() {
                                 </Box>
                             </Box>
                             <Box>
-                                <Button size={{base: "sm", lg: "lg"}} onClick={handleSignOut}>Sign Out</Button>
+                                <Button size={{ base: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
                             </Box>
                         </Flex>
                     </GridItem>
                     <GridItemConfLogo area={"logo1"} />
                     <GridItemConfLogo area={"logo2"} />
                 </Grid>
+            </Container>
         </>
     )
 };

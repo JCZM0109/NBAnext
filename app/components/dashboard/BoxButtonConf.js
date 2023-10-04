@@ -4,7 +4,11 @@ import "./boxbutton-conf.css"
 import { useState } from "react";
 import GridTeams from "./GridTeams";
 
-
+/**
+ * 
+ * @param {String} area 
+ * @returns 
+ */
 export default function BoxButtonConf({ area }) {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +28,7 @@ export default function BoxButtonConf({ area }) {
                 isOpen={isOpen}
                 placement={(area == "logo1") ? "left" : "right"}
                 onClose={onClose}
-                size={{ base: "xs", lg: "md" }}
+                variant={{base: "secondary", lg: "primary"}}
             >
                 <DrawerOverlay>
                     <DrawerContent>
