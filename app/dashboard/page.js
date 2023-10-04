@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation"
 import "./dashboard.css"
 import GridItemConfLogo from "../components/dashboard/GridItemConfLogo";
+import { Slugify } from "../utilities/slugify";
 
 
 
@@ -43,6 +44,7 @@ export default function dashboardPage() {
 
     return (
         <>
+            <Container className="main-layout">
                 <Grid className="grid-dashb">
                     <GridItem area={"header"}>
                         <Flex className="flex-gridheader">
@@ -53,7 +55,9 @@ export default function dashboardPage() {
                                         <Text className="text-userteamb">Click the logo below to go to the {userTeam} page:</Text>
                                     </Box>
                                     <Box className="flex-boximg">
-                                        <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
+                                        <Link href={`/teams/${Slugify(userTeam)}`}>
+                                            <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
+                                        </Link>
                                     </Box>
                                 </Flex>
                                 <Box className="box-extratext">
@@ -61,13 +65,14 @@ export default function dashboardPage() {
                                 </Box>
                             </Box>
                             <Box>
-                                <Button size={{base: "sm", lg: "lg"}} onClick={handleSignOut}>Sign Out</Button>
+                                <Button size={{ base: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
                             </Box>
                         </Flex>
                     </GridItem>
                     <GridItemConfLogo area={"logo1"} />
                     <GridItemConfLogo area={"logo2"} />
                 </Grid>
+            </Container>
         </>
     )
 };

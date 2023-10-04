@@ -32,7 +32,22 @@ const theme = extendTheme({
                 }
             }
         },
-    },
+        Drawer: {
+            parts: ['dialog', 'header', 'body'],
+            variants: {
+                primary: {
+                    dialog: {
+                        maxW: "520px"
+                    },
+                },
+                secondary: {
+                    dialog: {
+                        maxW: "300px",
+                    }
+                }
+            },
+        },
+    }
 });
 
 export default theme;
