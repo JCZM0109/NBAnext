@@ -46,9 +46,7 @@ export default function dashboardPage() {
         <>
             <Container className="main-layout">
                 <Grid className="grid-dashb">
-                    <GridItem area={"header"}>
-                        <Flex className="flex-gridheader">
-                            <Flex className="flex-boxt">
+                    <GridItem area={"header"} className="flex-gridheader">
                                 <Heading className="header-flex">Hey there, {userName}, happy to have you here!</Heading>
                                 <Flex className="flex-userteamb">
                                     <Box>
@@ -63,11 +61,11 @@ export default function dashboardPage() {
                                 <Box className="box-extratext">
                                     <Text className="extratext">Or... click a conference logo to select any team:</Text>
                                 </Box>
-                            </Flex>
-                            <Box>
-                                <Button size={{ base: "sm", md: "md", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
-                            </Box>
-                        </Flex>
+                    </GridItem>
+                    <GridItem area={"sout"} className="gitem-buttonso">
+                        <Box className="box-buttonso">
+                            <Button size={{ base: "xs", sm:"sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
+                        </Box>
                     </GridItem>
                     <GridItemConfLogo area={"logo1"} />
                     <GridItemConfLogo area={"logo2"} />

@@ -5,22 +5,20 @@
 
 .grid-dashb {
     gap: 50px;
-    grid-template-areas: "header header"
-        "logo1 logo2";
-    grid-template-rows: 400px 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "header header sout"
+        "logo1 logo2 sout";
+    grid-template-rows: 400px 1fr auto;
+    grid-template-columns: 1fr 1fr auto;
 }
 
-.flex-boxt {
-    align-items: center;
-    flex-direction: column;
-}
 
 .flex-gridheader {
-    gap: 50px;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 20px;
+    display: flex;
 }
 
 .header-flex {
@@ -60,12 +58,17 @@
     object-fit: contain;
 }
 
+.gitem-buttonso {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 
 
 @media only screen and (min-width: 900px) and (max-width: 1540px) {
 
     .main-layout {
-        padding-top: 20px;
+        padding-top: 10px;
         max-width: 1200px;
     }
 
@@ -86,6 +89,12 @@
         width: 130px;
         height: 130px;
     }
+    .box-extratext {
+        margin-top: 10px;
+    }
+    .flex-gridheader {
+        padding: 10px;
+    }
 
 
 }
@@ -94,10 +103,11 @@
 
     .grid-dashb {
         gap: 10px;
-        grid-template-areas: "header"
+        grid-template-areas: "sout"
+            "header"
             "logo1"
             "logo2";
-        grid-template-rows: 1fr auto auto;
+        grid-template-rows: auto auto auto auto;
         grid-template-columns: 1fr;
     }
 
@@ -107,15 +117,15 @@
         text-align: justify;
     }
 
-    .flex-boxt {
-        width: 300px;
-    }
-
     .flex-userteamb {
         width: 200px;
-        height: 220px;
+        height: auto;
         gap: 10px;
+        padding: 10px;
         margin-bottom: 50px;
+    }
+    .box-extratext {
+        margin-top: 10px;
     }
 
     .text-userteamb {
@@ -133,6 +143,7 @@
         flex-direction: column-reverse;
         padding: 10px;
         align-items: center;
+        width: 300px;
     }
     .main-layout {
         margin-top: 20px;
