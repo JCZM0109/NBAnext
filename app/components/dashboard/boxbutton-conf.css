@@ -28,15 +28,15 @@
 @media only screen and (min-width: 900px) and (max-width: 1540px) {
 
     .gitem-imageb {
-        width: 260px;
-        height: 260px;
-        margin-top: 18px;
+        width: 250px;
+        height: 250px;
+        margin-top: 15px;
     }
 
     .gitem-imageb:hover {
-        width: 280px;
-        height: 280px;
-        margin-top: 12px;
+        width: 270px;
+        height: 270px;
+        margin-top: 10px;
     }
 }
 

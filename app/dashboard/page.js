@@ -48,24 +48,24 @@ export default function dashboardPage() {
                 <Grid className="grid-dashb">
                     <GridItem area={"header"}>
                         <Flex className="flex-gridheader">
-                            <Box className="flex-boxt">
+                            <Flex className="flex-boxt">
                                 <Heading className="header-flex">Hey there, {userName}, happy to have you here!</Heading>
                                 <Flex className="flex-userteamb">
                                     <Box>
                                         <Text className="text-userteamb">Click the logo below to go to the {userTeam} page:</Text>
                                     </Box>
-                                    <Box className="flex-boximg">
-                                        <Link href={`/teams/${Slugify(userTeam)}`}>
+                                    <Link href={`/teams/${Slugify(userTeam)}`}>
+                                        <Box className="flex-boximg">
                                             <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
-                                        </Link>
-                                    </Box>
+                                        </Box>
+                                    </Link>
                                 </Flex>
                                 <Box className="box-extratext">
                                     <Text className="extratext">Or... click a conference logo to select any team:</Text>
                                 </Box>
-                            </Box>
+                            </Flex>
                             <Box>
-                                <Button size={{ base: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
+                                <Button size={{ base: "sm", md: "md", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
                             </Box>
                         </Flex>
                     </GridItem>

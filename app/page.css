@@ -38,6 +38,19 @@
     margin: 50px auto 0;
 }
 
+@media (min-width: 900px) and (max-width: 1540px) {
+    .homep-textbox {
+        margin-top: 80px;
+        max-width: 450px;
+    }
+    .homep-textb {
+        font-size: 22px;
+    }
+    .homep-header {
+        font-size: 54px;
+    }
+}
+
 
 @media (max-width: 576px) {
     .homep-container {
