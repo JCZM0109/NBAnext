@@ -24,15 +24,13 @@ export default function GridTeams({ area }) {
             <Grid className="grid-teams">
                 {teamList.map((team, key) => {
                     return (
-                        <>
-                            <GridItem key={key}>
-                                <Link href={`/teams/${Slugify(team)}`}>
-                                    <Box className="box-imageteam">
-                                        <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team" />
-                                    </Box>
-                                </Link>
-                            </GridItem>
-                        </>
+                        <GridItem key={key}>
+                            <Link href={`/teams/${Slugify(team)}`}>
+                                <Box className="box-imageteam">
+                                    <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team" />
+                                </Box>
+                            </Link>
+                        </GridItem>
                     )
                 })}
             </Grid>
