@@ -22,7 +22,7 @@ export default function BoxButtonConf({ area }) {
     return (
         <>
             <Box as="button" className="gitem-imageb" bgColor={(area == "logo1") ? "rgba(237, 23, 75, 1)" : "rgba(9, 82, 156, 1)"} onClick={onOpen}>
-                <Image fill="true" alt="Conference" className="gitem-image" src={area == "logo1" ? "/WEST.svg" : "/EAST.svg"} />
+                <Image fill="true" alt="Conference" className="gitem-image" src={area == "logo1" ? "/WEST.svg" : "/EAST.svg"} priority={true} />
             </Box>
             <Drawer
                 isOpen={isOpen}

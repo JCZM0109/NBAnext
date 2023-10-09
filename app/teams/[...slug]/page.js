@@ -1,7 +1,10 @@
 'use client'
 import { getData, getSpecificTeam } from "@/app/services"
-import { Text, Box, Heading } from "@chakra-ui/react";
+import { Text, Box, Heading, Container, Flex, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import "./page.css"
 
 const teamsFullName = [
     "hawks",
@@ -53,6 +56,10 @@ export async function generateStaticParams() {
 export default function TeamPage({ params }) {
     const { slug } = params;
 
+    const router = useRouter();
+
+    const {data: session, status} = useSession()
+
 
     const [teamInfo, setTeamInfo] = useState({});
 
@@ -62,17 +69,46 @@ export default function TeamPage({ params }) {
         setTeamInfo(teamData)
     }
 
+    const handleSignOut = async () => {
+        const { error } = await signOut({ redirect: false })
+
+        if (error) {
+            throw new Error("Can't log out")
+        } else {
+            router.push("/");
+        }
+    }
+
     useEffect(() => {
         fetchTeamData()
     }, []);
 
+    const userName = session?.user?.name || "Guest";
+    const userTeam = session?.user?.team || "";
+
+    let isFavTeam = false;
+
+    if (teamInfo.name === userTeam) {
+        isFavTeam = true;
+        console.log(isFavTeam);
+    };
+
     return (
-        <Box>
-            <Heading size={"xl"} color="white">{teamInfo.name}</Heading>
-            <Text color="white">{teamInfo.city}</Text>
-            <Text color="white">{teamInfo.conference}</Text>
-            <Text color="white">{teamInfo.full_name}</Text>
-        </Box>
+        <>
+            <Flex width="100%" height="70px" p="5px" bgColor="white" justifyContent="space-around">
+                <Box padding="10px">
+                    <Heading size={"2xl"} color="black">{teamInfo.name}</Heading>
+                </Box>
+                <Box className="box-buttonso">
+                    <Button size={{ base: "xs", sm: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
+                </Box>
+            </Flex>
+            <Container>
+                <Text color="white">{teamInfo.city}</Text>
+                <Text color="white">{teamInfo.conference}</Text>
+                <Text color="white">{teamInfo.full_name}</Text>
+            </Container>
+        </>
     )
 }
 
