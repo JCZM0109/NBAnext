@@ -27,7 +27,7 @@ export default function GridTeams({ area }) {
                         <GridItem key={key}>
                             <Link href={`/teams/${Slugify(team)}`}>
                                 <Box className="box-imageteam">
-                                    <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team" />
+                                    <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team"/>
                                 </Box>
                             </Link>
                         </GridItem>
