@@ -42,7 +42,7 @@ const theme = extendTheme({
                 },
                 secondary: {
                     dialog: {
-                        maxW: "300px",
+                        maxW: "280px",
                     }
                 }
             },
