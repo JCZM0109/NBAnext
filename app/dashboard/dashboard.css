@@ -114,7 +114,7 @@
     }
 
     .header-flex {
-        font-size: 15px;
+        font-size: 18px;
         white-space: wrap;
         text-align: center;
     }
@@ -145,15 +145,15 @@
 
     .flex-gridheader {
         gap: 15px;
-        justify-content: space-between;
         flex-direction: column;
         padding: 10px;
-        align-items: center;
         width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-layout {
         margin-top: 20px;
-        padding-top: 20px;
+        padding-top: 15px;
     }
 }
