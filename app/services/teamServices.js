@@ -15,6 +15,12 @@ export const getSpecificTeam = async (id) => {
     const response = await axios.get(`https://www.balldontlie.io/api/v1/teams/${id}`)
 
     return response.data
+};
+
+export const getMatchesByTeam = async (id, page) => {
+
+    const response = await axios.get(`https://www.balldontlie.io/api/v1/games?team_ids[]=${id}&page=${page}`)
+    return response.data
 }
 
 

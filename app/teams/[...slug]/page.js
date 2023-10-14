@@ -1,10 +1,11 @@
 'use client'
-import { getData, getSpecificTeam } from "@/app/services"
+import { getData, getMatchesByTeam, getSpecificTeam } from "@/app/services"
 import { Text, Box, Heading, Container, Flex, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import "./page.css"
+import MatchesTable from "@/app/components/teampage/MatchesTable";
 
 const teamsFullName = [
     "hawks",
@@ -27,7 +28,7 @@ const teamsFullName = [
     "timberwolves",
     "pelicans",
     "knicks",
-    "city Thunder",
+    "thunder",
     "magic",
     "76ers",
     "suns",
@@ -38,6 +39,8 @@ const teamsFullName = [
     "jazz",
     "wizards",
 ];
+
+
 
 export async function generateStaticParams() {
 
@@ -54,17 +57,18 @@ export async function generateStaticParams() {
 
 
 export default function TeamPage({ params }) {
+
     const { slug } = params;
-
     const router = useRouter();
-
     const {data: session, status} = useSession()
-
-
     const [teamInfo, setTeamInfo] = useState({});
+    
+
+
+    const teamId = teamsFullName.indexOf(`${slug}`) + 1;
+
 
     const fetchTeamData = async () => {
-        const teamId = teamsFullName.indexOf(`${slug}`) + 1;
         const teamData = await getSpecificTeam(teamId);
         setTeamInfo(teamData)
     }
@@ -83,7 +87,6 @@ export default function TeamPage({ params }) {
         fetchTeamData()
     }, []);
 
-    const userName = session?.user?.name || "Guest";
     const userTeam = session?.user?.team || "";
 
     let isFavTeam = false;
@@ -107,6 +110,7 @@ export default function TeamPage({ params }) {
                 <Text color="white">{teamInfo.city}</Text>
                 <Text color="white">{teamInfo.conference}</Text>
                 <Text color="white">{teamInfo.full_name}</Text>
+                <MatchesTable teamId={teamId}/>
             </Container>
         </>
     )

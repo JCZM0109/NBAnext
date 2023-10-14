@@ -16,6 +16,8 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/rubik-mono-one": "^5.0.12",
     "@fontsource/staatliches": "^5.0.12",
+    "@mui/material": "^5.14.13",
+    "@mui/x-data-grid": "^6.16.2",
     "@prisma/client": "^5.2.0",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.1",
