@@ -1,0 +1,11 @@
+.box-tablem {
+    width: 500px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+    .box-tablem {
+        width: 400px;
+    }
+}
