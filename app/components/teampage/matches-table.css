@@ -6,14 +6,24 @@
 .container-tablematches::-webkit-scrollbar {
     width: 10px;
     background-color: black;
+    
 }
 
 .container-tablematches::-webkit-scrollbar-thumb{
     background-color: grey;
+    border-radius: 30px;
 }
 
 @media (max-width: 576px) {
     .box-tablem {
-        width: 300px;
+        width: 310px;
+    }
+
+    .container-tablematches::-webkit-scrollbar {
+        width: 5px;
+    }
+    .pagination-box {
+        flex-wrap: wrap; 
+        align-items: center;
     }
 }

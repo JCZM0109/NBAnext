@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import "./page.css"
 import MatchesTable from "@/app/components/teampage/MatchesTable";
 import FavoriteTeam from "@/app/components/teampage/FavoriteTeam";
+import Link from "next/link";
 
 const teamsFullName = [
     "hawks",
@@ -61,9 +62,9 @@ export default function TeamPage({ params }) {
 
     const { slug } = params;
     const router = useRouter();
-    const {data: session, status} = useSession()
+    const { data: session, status } = useSession()
     const [teamInfo, setTeamInfo] = useState({});
-    
+
 
 
     const teamId = teamsFullName.indexOf(`${slug}`) + 1;
@@ -72,7 +73,7 @@ export default function TeamPage({ params }) {
     const fetchTeamData = async () => {
         const teamData = await getSpecificTeam(teamId);
         setTeamInfo(teamData)
-    }
+    };
 
     const handleSignOut = async () => {
         const { error } = await signOut({ redirect: false })
@@ -82,7 +83,7 @@ export default function TeamPage({ params }) {
         } else {
             router.push("/");
         }
-    }
+    };
 
     useEffect(() => {
         fetchTeamData()
@@ -99,12 +100,15 @@ export default function TeamPage({ params }) {
 
     return (
         <>
-            <Flex width="100%" height="70px" p="5px" bgColor="white" justifyContent="space-around">
-                <Flex alignContent="space-between" gap={10}>
-                <Box padding="10px">
-                    <Heading size={"2xl"} color="black">{teamInfo.name}</Heading>
-                </Box>
-                {isFavTeam && <FavoriteTeam/>}
+            <Flex className="flex-header">
+                <Flex alignItems="center">
+                    <Link href="/dashboard"><Text>Go back</Text></Link>
+                </Flex>
+                <Flex className="flex-tname">
+                    <Box padding="10px">
+                        <Heading size={{ base: "lg", lg: "2xl" }} color="black">{teamInfo.name}</Heading>
+                    </Box>
+                    {isFavTeam && <FavoriteTeam />}
                 </Flex>
                 <Box className="box-buttonso">
                     <Button size={{ base: "xs", sm: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
@@ -114,7 +118,7 @@ export default function TeamPage({ params }) {
                 <Text color="white">{teamInfo.city}</Text>
                 <Text color="white">{teamInfo.conference}</Text>
                 <Text color="white">{teamInfo.full_name}</Text>
-                <MatchesTable teamId={teamId}/>
+                <MatchesTable teamId={teamId} />
             </Container>
         </>
     )

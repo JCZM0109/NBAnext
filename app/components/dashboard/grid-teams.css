@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.box-imageteam:hover  {
+    opacity: 50%;
+}
+
 .image-team {
     object-fit: contain;
 }

@@ -10,6 +10,7 @@ import { grey } from "@mui/material/colors";
 
 
 
+
 const MuiTheme = createTheme({
     palette: {
         mode: "dark",
@@ -37,7 +38,6 @@ function createData(homeTeam, visitorTeam, score) {
 };
 
 const columns = ["Home Team", "Visitor Team", "Score"];
-
 
 
 export default function MatchesTable({ teamId }) {
@@ -118,6 +118,13 @@ export default function MatchesTable({ teamId }) {
                         page={page - 1}
                         onPageChange={handlePageChange}
                         rowsPerPage={25}
+                        //Verificando si se está en un movil para cambiar el flex de la pagination
+                        {...!screenUpper900 && {sx: {
+                            ".MuiTablePagination-toolbar":{
+                                flexWrap: "wrap",
+                                justifyContent: "center"
+                            }
+                        }} }
                     />
                 </TableContainer>
             </ThemeProvider>
