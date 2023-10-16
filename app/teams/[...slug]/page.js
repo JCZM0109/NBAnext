@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import "./page.css"
 import MatchesTable from "@/app/components/teampage/MatchesTable";
-import FavTeam from "@/app/components/teampage/FavTeam";
+import FavoriteTeam from "@/app/components/teampage/FavoriteTeam";
 
 const teamsFullName = [
     "hawks",
@@ -104,7 +104,7 @@ export default function TeamPage({ params }) {
                 <Box padding="10px">
                     <Heading size={"2xl"} color="black">{teamInfo.name}</Heading>
                 </Box>
-                {isFavTeam && <FavTeam/>}
+                {isFavTeam && <FavoriteTeam/>}
                 </Flex>
                 <Box className="box-buttonso">
                     <Button size={{ base: "xs", sm: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
