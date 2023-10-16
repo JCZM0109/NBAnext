@@ -2,8 +2,7 @@
 
 import { getMatchesByTeam } from "@/app/services";
 import { useEffect, useState } from "react";
-// import { DataGrid } from '@mui/x-data-grid';
-import { TablePagination, ThemeProvider, createTheme } from '@mui/material'
+import { TablePagination, ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
 
 import "./matches-table.css";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
@@ -20,12 +19,11 @@ const MuiTheme = createTheme({
             styleOverrides: {
                 root: {
                     border: 1,
-                    borderColor: grey,
                     borderStyle: "solid",
                     borderRadius: 10,
                     boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
                     backgroundColor: grey,
-                    color: "#C1C2C5",
+                    color: "black",
                     padding: 10,
                 },
             },
@@ -33,11 +31,6 @@ const MuiTheme = createTheme({
     },
 });
 
-// const columns = [
-//     { field: "id", headerName: "ID", width: 90 },
-//     { field: "homeTeam", headerName: "Home Team", width: 130 },
-//     { field: "visitorTeam", headerName: "Visitor Team", width: 130 },
-//     { field: "score", headerName: "Score", width: 130 }];
 
 function createData(homeTeam, visitorTeam, score) {
     return { homeTeam, visitorTeam, score }
@@ -49,9 +42,10 @@ const columns = ["Home Team", "Visitor Team", "Score"];
 
 export default function MatchesTable({ teamId }) {
 
+    const screenUpper900 = useMediaQuery("(min-height:900px)");
+
     const [teamMatches, setTeamMatches] = useState([]);
     const [totalRows, setTotalRows] = useState(1);
-
     const [page, setPage] = useState(1);
 
     const fetchTeamMatches = async () => {
@@ -88,13 +82,13 @@ export default function MatchesTable({ teamId }) {
     return (
         <div className="box-tablem">
             <ThemeProvider theme={MuiTheme}>
-                <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 500 }} aria-label="simple table">
+                <TableContainer component={Paper} sx={{ height: 450 }} className="container-tablematches">
+                    <Table aria-label="simple table" size={screenUpper900 ? "large" : "small"}>
                         <TableHead>
-                            <TableRow>
+                            <TableRow sx={{ position: "sticky", top: 0, backgroundColor: "white" }}>
                                 {
                                     columns.map((column, key) => {
-                                        return <TableCell key={key}>{column}</TableCell>
+                                        return <TableCell key={key} align="center" sx={{ width: "auto", color: "black" }}>{column}</TableCell>
                                     })
                                 }
                             </TableRow>
@@ -127,7 +121,7 @@ export default function MatchesTable({ teamId }) {
                     />
                 </TableContainer>
             </ThemeProvider>
-        </div>
+        </div >
     )
 
 }

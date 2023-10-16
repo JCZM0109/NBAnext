@@ -1,6 +1,15 @@
 .box-tablem {
-    width: 600px;
-    margin-top: 20px;
+    width: 500px;
+    margin: 20px auto 0;
+}
+
+.container-tablematches::-webkit-scrollbar {
+    width: 10px;
+    background-color: black;
+}
+
+.container-tablematches::-webkit-scrollbar-thumb{
+    background-color: grey;
 }
 
 @media (max-width: 576px) {
