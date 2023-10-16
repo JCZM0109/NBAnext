@@ -11,4 +11,4 @@ export default function FavTeam() {
             <Image src={crown} alt="crown image" fill={true} objectFit="contain"/>
         </Box>
     )
-}
+};
