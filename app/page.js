@@ -5,12 +5,16 @@ import Image from "next/image"
 import Link from "next/link"
 import "./page.css"
 
-
+/**
+ * 
+ * @returns (homepage)
+ */
 
 export default function Home() {
 
 
   return (
+    //Basicamente se define un container para toda la pagina el cual tiene un flex vertical adentro. 
     <Container centerContent className="homep-container">
       <Flex className="homep-flex">
         <Box>
