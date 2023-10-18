@@ -63,7 +63,7 @@ export default function dashboardPage() {
                         </Box>
                     </GridItem>
                     <GridItem area={"sout"} className="gitem-buttonso">
-                        <Box className="box-buttonso">
+                        <Box>
                             <Button size={{ base: "xs", sm: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
                         </Box>
                     </GridItem>
