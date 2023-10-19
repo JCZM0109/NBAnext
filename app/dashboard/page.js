@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation"
 import "./dashboard.css"
 import GridItemConfLogo from "../components/dashboard/GridItemConfLogo";
 import { Slugify } from "../utilities/slugify";
-
+import { AnimatePresence, motion } from "framer-motion";
 
 
 
@@ -53,9 +53,16 @@ export default function dashboardPage() {
                                 <Text className="text-userteamb">Click the logo below to go to the {userTeam} page:</Text>
                             </Box>
                             <Link href={`/teams/${Slugify(userTeam)}`}>
-                                <Box className="flex-boximg">
+                                <motion.div whileHover={{
+                                    zIndex: 1,
+                                    scale: [1, 1.2, 1.1],
+                                    rotate: [0, 10, -10, 0],
+                                    transition: {
+                                        duration: .2
+                                    }
+                                }} className="flex-boximg">
                                     <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
-                                </Box>
+                                </motion.div>
                             </Link>
                         </Flex>
                         <Box className="box-extratext">

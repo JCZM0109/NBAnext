@@ -1,10 +1,11 @@
 'use client'
-import { Box, Grid, GridItem, Tab, Text } from "@chakra-ui/react"
+import { Box, Grid, GridItem } from "@chakra-ui/react"
 import teamsByConf from "../../utilities/teamsByConf"
 import "./grid-teams.css"
 import Image from "next/image"
 import Link from "next/link"
 import { Slugify } from "@/app/utilities/slugify"
+import { motion } from "framer-motion"
 
 
 export default function GridTeams({ area }) {
@@ -26,9 +27,17 @@ export default function GridTeams({ area }) {
                     return (
                         <GridItem key={key}>
                             <Link href={`/teams/${Slugify(team)}`}>
-                                <Box className="box-imageteam">
+                                <motion.div className="box-imageteam" whileHover={{
+                                    zIndex: 1,
+                                    background: "white",
+                                    scale: [1, 1.3, 1.1],
+                                    rotate: [0, 10, -10, 0],
+                                    transition: {
+                                        duration: .2
+                                    }                      
+                                    }}>
                                     <Image fill={true} src={`/${team}.png`} alt={`${team} logo`} sizes="(max-width: 1524px) 100vw" className="image-team"/>
-                                </Box>
+                                </motion.div>
                             </Link>
                         </GridItem>
                     )

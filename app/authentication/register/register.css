@@ -19,7 +19,7 @@
 }
 
 .button-register:hover {
-    background-color: rgb(244, 118, 118);
+    background-color: hue-rotate(90deg);
 }
 
 .box-buttonr {
