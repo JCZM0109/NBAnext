@@ -56,7 +56,13 @@ export default function Home() {
               </Text>
 
             </Box>
-            <Box className="homep-buttonb">
+            <motion.div whileHover={{
+              scale: [1, 1.2, 1.3, 1.2],
+              transition: {
+                duration: .2
+              },
+              filter: "hue-rotate(90deg)"
+            }} className="homep-buttonb">
               <Link href="/authentication/register">
                 <Button size={{ base: "md", lg: "lg" }}>
                   Register
@@ -67,7 +73,7 @@ export default function Home() {
                   Login
                 </Button>
               </Link>
-            </Box>
+            </motion.div>
           </Flex>
         </motion.div>
       </Container >

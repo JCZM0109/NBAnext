@@ -11,7 +11,7 @@
 }
 
 .button-login:hover {
-    background-color: rgb(244, 118, 118);
+    filter: hue-rotate(90deg);
 }
 
 .box-buttonl {
