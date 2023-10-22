@@ -36,7 +36,7 @@ export default function Home() {
             },
             pageExit: {
               backgroundColor: "white",
-              filter: "invert(100%)",
+              filter: "invert(1)",
               opacity: 0
             }
           }}
