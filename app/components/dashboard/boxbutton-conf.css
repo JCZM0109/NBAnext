@@ -25,17 +25,28 @@
     align-items: center;
 }
 
+.drawer-div::-webkit-scrollbar {
+    width: 10px;
+    background-color: black;
+}
+.drawer-div::-webkit-scrollbar-thumb{
+    background-color: grey;
+    border-radius: 30px;
+}
+
+
+/*TODO AJUSTAR WIDTH A 350 para imagae y hover 370*/
 @media only screen and (min-width: 900px) and (max-width: 1540px) {
 
     .gitem-imageb {
-        width: 250px;
-        height: 250px;
+        width: 340px;
+        height: 340px;
         margin-top: 15px;
     }
 
     .gitem-imageb:hover {
-        width: 270px;
-        height: 270px;
+        width: 350px;
+        height: 350px;
         margin-top: 10px;
     }
 }

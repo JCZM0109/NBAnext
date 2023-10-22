@@ -1,6 +1,6 @@
 'use client'
 import { getData, getMatchesByTeam, getSpecificTeam } from "@/app/services"
-import { Text, Box, Heading, Container, Flex, Button } from "@chakra-ui/react";
+import { Text, Box, Heading, Container, Flex, Button, FormLabel, Select } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -8,6 +8,7 @@ import "./page.css"
 import MatchesTable from "@/app/components/teampage/MatchesTable";
 import FavoriteTeam from "@/app/components/teampage/FavoriteTeam";
 import Link from "next/link";
+import seasonsArray from "@/app/utilities/seasonsArray";
 
 const teamsFullName = [
     "hawks",
@@ -42,6 +43,7 @@ const teamsFullName = [
     "wizards",
 ];
 
+const arraySeasons = seasonsArray();
 
 
 export async function generateStaticParams() {
@@ -75,6 +77,8 @@ export default function TeamPage({ params }) {
         setTeamInfo(teamData)
     };
 
+    const [selectedSeason, setSelectedSeason] = useState("")
+
     const handleSignOut = async () => {
         const { error } = await signOut({ redirect: false })
 
@@ -98,6 +102,7 @@ export default function TeamPage({ params }) {
         console.log(isFavTeam);
     };
 
+
     return (
         <>
             <Flex className="flex-header">
@@ -115,10 +120,26 @@ export default function TeamPage({ params }) {
                 </Box>
             </Flex>
             <Container>
-                <Text color="white">{teamInfo.city}</Text>
-                <Text color="white">{teamInfo.conference}</Text>
-                <Text color="white">{teamInfo.full_name}</Text>
-                <MatchesTable teamId={teamId} />
+                <Box className="box-seasons">
+                <form>
+                    <FormLabel>
+                        Select a season to display data
+                    </FormLabel>
+                    <Select
+                    placeholder="seasons"
+                    value={selectedSeason}
+                    id="season"
+                    name="season"
+                    type="number"
+                    onChange={(e) => {setSelectedSeason(e.target.value)}}
+                    >
+                        {arraySeasons.map((season, key) => {
+                            return <option key={key}>{season}</option>
+                        })}
+                    </Select>
+                </form>
+                </Box>
+                <MatchesTable teamId={teamId} season={selectedSeason} />
             </Container>
         </>
     )

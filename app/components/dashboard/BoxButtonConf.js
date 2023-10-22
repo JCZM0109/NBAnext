@@ -33,7 +33,7 @@ export default function BoxButtonConf({ area }) {
                 <DrawerOverlay>
                     <DrawerContent>
                         <DrawerCloseButton />
-                        <DrawerBody>
+                        <DrawerBody className="drawer-div">
                             <Flex className="drawer-flex">
                                 <Box className="box-headerdrawer">
                                     <Heading color={(area == "logo1") ? "rgba(237, 23, 75, 1)" : "rgba(9, 82, 156, 1)"}>{area == "logo1" ? "West" : "East"}</Heading>

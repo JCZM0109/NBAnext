@@ -1,7 +1,7 @@
 'use client'
 
 import { getMatchesByTeam } from "@/app/services";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TablePagination, ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
 
 import "./matches-table.css";
@@ -33,23 +33,26 @@ const MuiTheme = createTheme({
 });
 
 
-function createData(homeTeam, visitorTeam, score) {
-    return { homeTeam, visitorTeam, score }
+function createData(homeTeam, visitorTeam, score, date) {
+    return { homeTeam, visitorTeam, score, date }
 };
 
-const columns = ["Home Team", "Visitor Team", "Score"];
+const columns = ["Home Team", "Visitor Team", "Score", "Date"];
 
 
-export default function MatchesTable({ teamId }) {
+export default function MatchesTable({ teamId, season }) {
+
+    console.log(season)
 
     const screenUpper900 = useMediaQuery("(min-height:900px)");
 
     const [teamMatches, setTeamMatches] = useState([]);
     const [totalRows, setTotalRows] = useState(1);
     const [page, setPage] = useState(1);
+    const table_matches = useRef();
 
     const fetchTeamMatches = async () => {
-        const matchesData = await getMatchesByTeam(teamId, page)
+        const matchesData = await getMatchesByTeam(teamId, page, season)
         setTeamMatches(matchesData.data);
         setTotalRows(matchesData.meta.total_count)
     }
@@ -60,12 +63,16 @@ export default function MatchesTable({ teamId }) {
         if (newPage < page) {
             setPage(page - 1)
         }
+
+        table_matches.current.scrollTop = 0;
     }
 
 
     const rows = [
         teamMatches.map((match, key) => {
-            return createData(match.home_team.full_name, match.visitor_team.full_name, `${match.home_team_score}-${match.visitor_team_score}`)
+            const editedDate = match.date.slice(0, match.date.indexOf("T"));
+            console.log(editedDate);
+            return createData(match.home_team.full_name, match.visitor_team.full_name, `${match.home_team_score}-${match.visitor_team_score}`, `${editedDate}`)
         })
     ];
 
@@ -79,11 +86,16 @@ export default function MatchesTable({ teamId }) {
         fetchTeamMatches()
     }, [page])
 
+    useEffect(() => {
+        fetchTeamMatches()
+        setPage(1);
+    }, [season])
+
     return (
         <div className="box-tablem">
             <ThemeProvider theme={MuiTheme}>
-                <TableContainer component={Paper} sx={{ height: 450 }} className="container-tablematches">
-                    <Table aria-label="simple table" size={screenUpper900 ? "large" : "small"}>
+                <TableContainer component={Paper} sx={{ height: 450 }} className="container-tablematches"  ref={table_matches}>
+                    <Table aria-label="simple table" size={screenUpper900 ? "large" : "small"} >
                         <TableHead>
                             <TableRow sx={{ position: "sticky", top: 0, backgroundColor: "white" }}>
                                 {
@@ -105,6 +117,9 @@ export default function MatchesTable({ teamId }) {
                                         </TableCell>
                                         <TableCell align="center">
                                             {row.score}
+                                        </TableCell>
+                                        <TableCell align="center">
+                                            {row.date}
                                         </TableCell>
                                     </TableRow>
                                     )
