@@ -29,7 +29,6 @@ export default function GridTeams({ area }) {
                             <Link href={`/teams/${Slugify(team)}`}>
                                 <motion.div className="box-imageteam" whileHover={{
                                     zIndex: 1,
-                                    background: "white",
                                     scale: [1, 1.3, 1.1],
                                     rotate: [0, 10, -10, 0],
                                     transition: {

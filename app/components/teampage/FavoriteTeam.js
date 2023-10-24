@@ -9,7 +9,7 @@ import "./favorite-team.css"
 export default function FavoriteTeam() {
     return (
         <Box className="box-image" >
-            <Image src={crown} alt="crown image" className="image-fav" fill={true}/>
+            <Image src={crown} alt="crown image" className="image-fav" fill={true} sizes="(max-width: 1524px) 100vw, (max-width: 576px) 50vw"/>
         </Box>
     )
 };

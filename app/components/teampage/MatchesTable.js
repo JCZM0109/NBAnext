@@ -42,8 +42,6 @@ const columns = ["Home Team", "Visitor Team", "Score", "Date"];
 
 export default function MatchesTable({ teamId, season }) {
 
-    console.log(season)
-
     const screenUpper900 = useMediaQuery("(min-height:900px)");
 
     const [teamMatches, setTeamMatches] = useState([]);
@@ -70,8 +68,9 @@ export default function MatchesTable({ teamId, season }) {
 
     const rows = [
         teamMatches.map((match, key) => {
+            
             const editedDate = match.date.slice(0, match.date.indexOf("T"));
-            console.log(editedDate);
+            
             return createData(match.home_team.full_name, match.visitor_team.full_name, `${match.home_team_score}-${match.visitor_team_score}`, `${editedDate}`)
         })
     ];
@@ -94,13 +93,13 @@ export default function MatchesTable({ teamId, season }) {
     return (
         <div className="box-tablem">
             <ThemeProvider theme={MuiTheme}>
-                <TableContainer component={Paper} sx={{ height: 450 }} className="container-tablematches"  ref={table_matches}>
+                <TableContainer component={Paper} className="container-tablematches"  ref={table_matches}>
                     <Table aria-label="simple table" size={screenUpper900 ? "large" : "small"} >
                         <TableHead>
-                            <TableRow sx={{ position: "sticky", top: 0, backgroundColor: "white" }}>
+                            <TableRow className="table-row">
                                 {
                                     columns.map((column, key) => {
-                                        return <TableCell key={key} align="center" sx={{ width: "auto", color: "black" }}>{column}</TableCell>
+                                        return <TableCell key={key} align="center" className="header-cells">{column}</TableCell>
                                     })
                                 }
                             </TableRow>
@@ -109,16 +108,16 @@ export default function MatchesTable({ teamId, season }) {
                             {
                                 flattenedRows.map((row, key) => {
                                     return (<TableRow key={key}>
-                                        <TableCell align="center">
+                                        <TableCell align="center" className="table-cells">
                                             {row.homeTeam}
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell align="center" className="table-cells">
                                             {row.visitorTeam}
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell align="center" className="table-cells">
                                             {row.score}
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell align="center" className="table-cells">
                                             {row.date}
                                         </TableCell>
                                     </TableRow>
