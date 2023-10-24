@@ -25,6 +25,10 @@
     .gitem-header {
         font-size: 25px;
     }
+    .gitem-outerbox {
+        width: 350px;
+        height: 350px;
+    }
 }
 
 @media (max-width: 576px) { 

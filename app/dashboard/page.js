@@ -44,6 +44,8 @@ export default function dashboardPage() {
 
     return (
         <>
+        <Flex>
+            <Box className="box-sideimg"><Image fill="true" priority={true} sizes="(max-width: 1524px) 100vw" src={"/balls.jpg"} alt="balls" className="img-side"/></Box>
             <Container className="main-layout">
                 <Grid className="grid-dashb">
                     <GridItem area={"header"} className="flex-gridheader">
@@ -61,7 +63,7 @@ export default function dashboardPage() {
                                         duration: .2
                                     }
                                 }} className="flex-boximg">
-                                    <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" />
+                                    <Image fill="true" sizes="(max-width: 1524px) 100vw" src={`/${userTeam}.png`} alt={`${userTeam} logo`} className="img-userteam" as="image/png"/>
                                 </motion.div>
                             </Link>
                         </Flex>
@@ -78,6 +80,8 @@ export default function dashboardPage() {
                     <GridItemConfLogo area={"logo2"} />
                 </Grid>
             </Container>
+            <Box className="box-sideimg"><Image fill="true" priority={true} sizes="(max-width: 1524px) 100vw" src={"/balls.jpg"} className="img-side" alt="balls"/></Box>
+            </Flex>
         </>
     )
 };

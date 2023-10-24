@@ -1,5 +1,5 @@
 'use client'
-import { getData, getMatchesByTeam, getSpecificTeam } from "@/app/services"
+import { getData, getSpecificTeam } from "@/app/services"
 import { Text, Box, Heading, Container, Flex, Button, FormLabel, Select } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
@@ -67,6 +67,9 @@ export default function TeamPage({ params }) {
     const { data: session, status } = useSession()
     const [teamInfo, setTeamInfo] = useState({});
 
+    const [prueba, setPrueba] = useState(false)
+
+
 
 
     const teamId = teamsFullName.indexOf(`${slug}`) + 1;
@@ -77,7 +80,7 @@ export default function TeamPage({ params }) {
         setTeamInfo(teamData)
     };
 
-    const [selectedSeason, setSelectedSeason] = useState("")
+    const [selectedSeason, setSelectedSeason] = useState("1980")
 
     const handleSignOut = async () => {
         const { error } = await signOut({ redirect: false })
@@ -99,9 +102,7 @@ export default function TeamPage({ params }) {
 
     if (teamInfo.name === userTeam) {
         isFavTeam = true;
-        console.log(isFavTeam);
     };
-
 
     return (
         <>

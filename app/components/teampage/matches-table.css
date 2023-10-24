@@ -9,21 +9,48 @@
     
 }
 
+.container-tablematches {
+    height: 450px;
+}
+
 .container-tablematches::-webkit-scrollbar-thumb{
     background-color: grey;
     border-radius: 30px;
 }
 
+.table-row {
+    position: sticky;
+    top: -0.5px;
+    background-color: white;
+}
+
+.header-cells {
+    width: 125px;
+    color: black;
+    font-weight: bold;
+}
+
+
 @media (max-width: 576px) {
     .box-tablem {
-        width: 310px;
+        width: 330px;
     }
-
+    .header-cells {
+        width: 35px;
+        font-size: 12px;
+    }
     .container-tablematches::-webkit-scrollbar {
         width: 5px;
+    }
+    .container-tablematches {
+        height: 350px;
     }
     .pagination-box {
         flex-wrap: wrap; 
         align-items: center;
+    }
+
+    .table-cells {
+        font-size: 11px;
     }
 }
