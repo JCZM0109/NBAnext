@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import './login.css'
+import LoadingBar from "@/app/components/misc/LoadingBar";
 
 
 
@@ -13,16 +14,24 @@ export default function logInPage() {
 
     const router = useRouter(); //defino el router para redirección
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const [data, setData] = useState({
         email: "",
         password: "",
     });
 
+
     //el loggeo se hace con signIn de next-auth
     const loginUser = async (e) => {
+        
         e.preventDefault();
 
+        setIsLoading(true);
+
         const { error } = await signIn('credentials', { ...data, redirect: false });
+
+        
 
         if (error) {
             console.log(error);
@@ -39,6 +48,7 @@ export default function logInPage() {
 
     return (
         <>
+            
             <Box className="outer-box"
             >
                 <Heading className="heading-login" variant="clear">Login</Heading>
@@ -69,6 +79,8 @@ export default function logInPage() {
                     </Box>
                 </form>
             </FormControl>
+            {isLoading && <LoadingBar/>}
+
         </>
     )
 };

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     //Basicamente se define un container para toda la pagina el cual tiene un flex vertical adentro. 
     <AnimatePresence>
-      <Container centerContent className="homep-container">
+      <Container className="homep-container">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -76,6 +76,11 @@ export default function Home() {
             </motion.div>
           </Flex>
         </motion.div>
+        <Box className="box-aboutm">
+          <Link href="/about-me">
+            <Text className="text-aboutm">About me</Text>
+          </Link>
+        </Box>
       </Container >
     </AnimatePresence>
   )

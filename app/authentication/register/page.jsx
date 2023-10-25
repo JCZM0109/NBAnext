@@ -17,6 +17,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import "./register.css"
+import LoadingBar from "@/app/components/misc/LoadingBar";
 
 const teamsFullName = [
     "Hawks",
@@ -57,6 +58,7 @@ export default function RegisterPage() {
 
 
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
     const [userData, setUserData] = useState({
         name: "",
         email: "",
@@ -68,6 +70,7 @@ export default function RegisterPage() {
     const registerUser = async (e) => {
         e.preventDefault()
 
+        setIsLoading(true);
         const serializedUserData = JSON.stringify({ userData });
         console.log(serializedUserData);
         const response = await axios.post('/api/register',
@@ -138,6 +141,7 @@ export default function RegisterPage() {
                     </Box>
                 </form>
             </FormControl>
+            {isLoading && <LoadingBar/>}
         </>
     )
 };

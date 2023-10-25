@@ -2,12 +2,12 @@
     background-image: url('../public/nba1.jpg') !important;
     background-size: cover;
     max-width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
 }
 
 .homep-flex {
-    margin-top: 80px;
-    padding: 15px;
+    padding-top: 80px;
     flex-direction: column;
 }
 
@@ -38,6 +38,14 @@
     margin: 50px auto 0;
 }
 
+.box-aboutm {
+    position: absolute;
+    right: 100px;
+}
+.text-aboutm {
+    color: white;
+}
+
 @media (min-width: 900px) and (max-width: 1540px) {
     .homep-textbox {
         margin-top: 60px;
@@ -57,7 +65,7 @@
       background-image: url('../public/nbamobile.jpg') !important;
     }
     .homep-flex {
-        margin-top: 50px;
+        padding-top: 50px;
     }
     .homep-header {
         font-size: x-large;
