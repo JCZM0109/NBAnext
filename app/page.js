@@ -76,11 +76,31 @@ export default function Home() {
             </motion.div>
           </Flex>
         </motion.div>
-        <Box className="box-aboutm">
-          <Link href="/about-me">
-            <Text className="text-aboutm">About me</Text>
-          </Link>
-        </Box>
+        <Flex className="flex-aboutm">
+          <Text className="aboutm-text">About me</Text>
+          <motion.div 
+            animate={{
+              y: [5, 10, 5, 10]
+            }}
+            repeat={3}
+          className="box-imgarrow">
+            <Image src="/arrow.png" fill="true" alt="white arrow" className="arrow-img" />
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: [1, 1.2, 1.3, 1.2],
+              rotate: "360deg",
+              transition: {
+                duration: .2
+              },
+            }}
+            className="box-aboutm"
+          >
+            <Link href="/about-me">
+              <Image src="/whirl.jpg" fill="true" alt="whirl image" className="aboutm-image"/>
+            </Link>
+          </motion.div>
+        </Flex>
       </Container >
     </AnimatePresence>
   )

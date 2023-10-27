@@ -39,11 +39,43 @@
 }
 
 .box-aboutm {
-    position: absolute;
-    right: 100px;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
-.text-aboutm {
+
+.box-imgarrow {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aboutm-image {
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.arrow-img {
+    object-fit: contain;
+}
+
+.flex-aboutm {
+    flex-direction: column;
+    max-width: auto;
+    position: absolute;
+    right: 200px;
+    bottom: 100px;
+    gap: 30px;
+    align-items: center;
+}
+
+.aboutm-text {
     color: white;
+    font-size: 30px;
 }
 
 @media (min-width: 900px) and (max-width: 1540px) {
