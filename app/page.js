@@ -5,11 +5,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { AnimatePresence, motion } from "framer-motion"
 import "./page.css"
+import AboutMe from "./components/misc/AboutMe"
 
 /**
  * 
  * @returns (homepage)
  */
+
+
+
+
 
 export default function Home() {
 
@@ -76,11 +81,7 @@ export default function Home() {
             </motion.div>
           </Flex>
         </motion.div>
-        <Box className="box-aboutm">
-          <Link href="/about-me">
-            <Text className="text-aboutm">About me</Text>
-          </Link>
-        </Box>
+        <AboutMe/>
       </Container >
     </AnimatePresence>
   )

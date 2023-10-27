@@ -38,14 +38,6 @@
     margin: 50px auto 0;
 }
 
-.box-aboutm {
-    position: absolute;
-    right: 100px;
-}
-.text-aboutm {
-    color: white;
-}
-
 @media (min-width: 900px) and (max-width: 1540px) {
     .homep-textbox {
         margin-top: 60px;
@@ -63,6 +55,8 @@
 @media (max-width: 576px) {
     .homep-container {
       background-image: url('../public/nbamobile.jpg') !important;
+      min-height: 100vh;
+      max-height: 100%;
     }
     .homep-flex {
         padding-top: 50px;
@@ -73,7 +67,7 @@
     }
     .homep-textbox {
         max-width: 250px;
-        margin-top: 60px;
+        margin-top: 30px;
     }
     .homep-textb {
         font-size: medium;
