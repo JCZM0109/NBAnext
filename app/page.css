@@ -38,46 +38,6 @@
     margin: 50px auto 0;
 }
 
-.box-aboutm {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-.box-imgarrow {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.aboutm-image {
-    border-radius: 50%;
-    object-fit: contain;
-}
-
-.arrow-img {
-    object-fit: contain;
-}
-
-.flex-aboutm {
-    flex-direction: column;
-    max-width: auto;
-    position: absolute;
-    right: 200px;
-    bottom: 100px;
-    gap: 30px;
-    align-items: center;
-}
-
-.aboutm-text {
-    color: white;
-    font-size: 30px;
-}
-
 @media (min-width: 900px) and (max-width: 1540px) {
     .homep-textbox {
         margin-top: 60px;
@@ -95,6 +55,8 @@
 @media (max-width: 576px) {
     .homep-container {
       background-image: url('../public/nbamobile.jpg') !important;
+      min-height: 100vh;
+      max-height: 100%;
     }
     .homep-flex {
         padding-top: 50px;
@@ -105,7 +67,7 @@
     }
     .homep-textbox {
         max-width: 250px;
-        margin-top: 60px;
+        margin-top: 30px;
     }
     .homep-textb {
         font-size: medium;

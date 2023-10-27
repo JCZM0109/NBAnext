@@ -5,11 +5,16 @@ import Image from "next/image"
 import Link from "next/link"
 import { AnimatePresence, motion } from "framer-motion"
 import "./page.css"
+import AboutMe from "./components/misc/AboutMe"
 
 /**
  * 
  * @returns (homepage)
  */
+
+
+
+
 
 export default function Home() {
 
@@ -76,31 +81,7 @@ export default function Home() {
             </motion.div>
           </Flex>
         </motion.div>
-        <Flex className="flex-aboutm">
-          <Text className="aboutm-text">About me</Text>
-          <motion.div 
-            animate={{
-              y: [5, 10, 5, 10]
-            }}
-            repeat={3}
-          className="box-imgarrow">
-            <Image src="/arrow.png" fill="true" alt="white arrow" className="arrow-img" />
-          </motion.div>
-          <motion.div
-            whileHover={{
-              scale: [1, 1.2, 1.3, 1.2],
-              rotate: "360deg",
-              transition: {
-                duration: .2
-              },
-            }}
-            className="box-aboutm"
-          >
-            <Link href="/about-me">
-              <Image src="/whirl.jpg" fill="true" alt="whirl image" className="aboutm-image"/>
-            </Link>
-          </motion.div>
-        </Flex>
+        <AboutMe/>
       </Container >
     </AnimatePresence>
   )
