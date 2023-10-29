@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import AuthProvider from './context/AuthProvider'
 import ChakraProviders from './context/ChakraUIProv'
 import './layout.css'
-import MetaData from "./metadata"
+
 
 
 
@@ -11,8 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <title>JZ's corner</title>
         <link rel='icon' href="/favicon.ico"/>
-        <MetaData/>
+        <meta name="description" content="Portfolio website"/>
       </head>
       <body>
         <ChakraProviders>
