@@ -1,11 +1,26 @@
 'use client'
 
-import { Box, Text } from "@chakra-ui/react"
+import { Box, Container, Text } from "@chakra-ui/react"
 
 export default function AboutMePage() {
     return (
-        <Box>
-            <Text>Hola!</Text>
-        </Box>
+        <Container>
+            <Box
+                bgColor="white"
+                height="1000px"
+            >
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+                <Text fontSize="xxx-large">Hola!</Text>
+            </Box>
+        </Container>
     )
 }

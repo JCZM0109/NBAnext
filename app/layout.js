@@ -1,4 +1,5 @@
-
+'use client'
+import { AnimatePresence } from 'framer-motion'
 import AuthProvider from './context/AuthProvider'
 import ChakraProviders from './context/ChakraUIProv'
 import './layout.css'
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
       <body>
         <ChakraProviders>
           <AuthProvider>
+            <AnimatePresence mode="wait" initial="false">
             {children}
+            </AnimatePresence>
           </AuthProvider>
         </ChakraProviders>
       </body>
