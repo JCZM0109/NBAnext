@@ -27,9 +27,6 @@
 .flex-aboutm {
     flex-direction: column;
     max-width: auto;
-    position: absolute;
-    right: 200px;
-    bottom: 100px;
     gap: 30px;
     align-items: center;
     border-radius: 10%;
@@ -68,4 +65,15 @@
         width: 120px;
     }
 
+}
+
+@media (min-width: 900px ) and (max-width: 1540px) {
+    .box-aboutm {
+        width: 130px;
+        height: 130px;
+    }
+    .box-imgarrow {
+        width: 60px;
+        height: 60px;
+    }
 }

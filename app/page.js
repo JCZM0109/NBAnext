@@ -1,9 +1,8 @@
 'use client'
 
 import { Box, Container, Heading, Text, Flex, Button, AspectRatio } from "@chakra-ui/react"
-import Image from "next/image"
 import Link from "next/link"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import "./page.css"
 import AboutMe from "./components/misc/AboutMe"
 
@@ -21,31 +20,23 @@ export default function Home() {
 
   return (
     //Basicamente se define un container para toda la pagina el cual tiene un flex vertical adentro. 
-    <AnimatePresence>
       <Container className="homep-container">
         <motion.div
           initial="hidden"
-          animate="visible"
-          exit="pageExit"
+          animate="animation"
           variants={{
             hidden: {
               scale: .9,
               opacity: 0
             },
-            visible: {
+            animation: {
               scale: 1,
               opacity: 1,
               transition: {
                 delay: .4
               },
             },
-            pageExit: {
-              backgroundColor: "white",
-              filter: "invert(1)",
-              opacity: 0
-            }
           }}
-
         >
           <Flex className="homep-flex">
             <Box>
@@ -80,9 +71,8 @@ export default function Home() {
               </Link>
             </motion.div>
           </Flex>
-        </motion.div>
-        <AboutMe/>
+          </motion.div>
+        <AboutMe indi={true}/>
       </Container >
-    </AnimatePresence>
   )
 }
