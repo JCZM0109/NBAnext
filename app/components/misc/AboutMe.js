@@ -6,7 +6,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import "./about-me.css";
 import { useState } from "react";
-import { duration } from "@mui/material";
 
 export default function AboutMe({indi}) {
 
