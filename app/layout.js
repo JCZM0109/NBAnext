@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>JZ's corner</title>
+        <title>JZ's CORNER</title>
         <link rel='icon' href="/favicon.ico"/>
         <meta name="description" content="Portfolio website"/>
       </head>
