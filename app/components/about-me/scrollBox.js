@@ -33,6 +33,6 @@ export default function ScrollBox() {
     } : {
         opacity: 0
     }} ref={exRef} transition={{duration: .5}}>
-        <Text color="white"> Hola! Carebola </Text>
+        <Text color="white"> What's up N! </Text>
     </motion.div>);
 }

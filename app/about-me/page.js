@@ -21,7 +21,7 @@ export default function AboutMePage() {
                 <Flex flexDir="column" alignItems="center">
 
                     <Box className="box-cvpic">
-                        <Image src="/JCZM.jpg" fill="true" alt="Foto personal autor" className="img-jczm" />
+                        {/* <Image src="/JCZM.jpg" fill="true" alt="Foto personal autor" className="img-jczm" /> */}
                     </Box>
                     <Box className="box-aboutme" />
                     <ScrollBox />
