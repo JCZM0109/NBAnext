@@ -1,0 +1,23 @@
+.header-boxscroll {
+    font-size: medium;
+}
+
+.box-aboutme {
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    margin-top: 60px;
+    box-shadow: 10px -10px 5px rgb(77, 77, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 576px) {
+
+    .box-aboutme {
+        width: 250px;
+        height: 100px;
+    }
+
+}
