@@ -80,7 +80,7 @@ export default function TeamPage({ params }) {
         setTeamInfo(teamData)
     };
 
-    const [selectedSeason, setSelectedSeason] = useState("1980")
+    const [selectedSeason, setSelectedSeason] = useState("2022")
 
     const handleSignOut = async () => {
         const { error } = await signOut({ redirect: false })

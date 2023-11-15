@@ -1,10 +1,11 @@
 'use client'
 
-import { Text } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 import { useRef, useState, useEffect} from "react";
 import { useMotionValueEvent, useScroll, motion, animate } from "framer-motion";
+import "./scroll-box.css";
 
-export default function ScrollBox() {
+export default function ScrollBox({delay, header}) {
 
 
     const exRef = useRef();
@@ -32,7 +33,8 @@ export default function ScrollBox() {
         scale: [1.1, 1]
     } : {
         opacity: 0
-    }} ref={exRef} transition={{duration: .5}}>
+    }} ref={exRef} transition={{duration: .5, delay: delay}}>
+        <Heading className="header-boxscroll">{header}</Heading>
         <Text color="white"> What's up N! </Text>
     </motion.div>);
 }
