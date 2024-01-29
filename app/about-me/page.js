@@ -7,6 +7,8 @@ import "./page.css";
 import ScrollBox from "../components/about-me/scrollBox";
 import Image from "next/image";
 
+// const Headers = ["NBA information portal", "Smile design center"]
+
 
 
 export default function AboutMePage() {
@@ -25,7 +27,7 @@ export default function AboutMePage() {
                 <Flex flexDir="column" alignItems="center">
 
                     <Box className="box-cvpic">
-                        <Image src="/JCZM1.jpg" fill="true" alt="Foto personal autor" className="img-jczm" />
+                        <Image src="/JCZM.jpg" fill="true" alt="Foto personal autor" className="img-jczm" />
                     </Box>
                     <motion.div initial={{
                         opacity: 0
@@ -47,22 +49,22 @@ export default function AboutMePage() {
 
                     <Grid className="grid-boxes">
                         <GridItem>
-                            <ScrollBox header={"Education"} />
+                            <ScrollBox header={"nba info portal"} href={"/"} description={"Created a portal with authentication to fetch NBA data from different APIs"} />
                         </GridItem>
                         <GridItem>
-                            <ScrollBox delay={isMobile ? .5 : 0} header={"Work experience"} />
+                            <ScrollBox delay={isMobile ? .5 : 0} href={"https://smiledc-miami.com/"} header={"Smile Design Center"} description={"Created a landing page for a odontological practice located in Miami, FL"} />
                         </GridItem>
                         <GridItem>
                             <ScrollBox header={"Pr"} />
                         </GridItem>
                         <GridItem>
-                            <ScrollBox delay={isMobile ? .5 : 0} header={"Workexperience"} />
+                            <ScrollBox delay={isMobile ? .5 : 0} header={"Workexperience"} description={"Created"} />
                         </GridItem>
                         <GridItem>
                             <ScrollBox header={"Education"} />
                         </GridItem>
                         <GridItem>
-                            <ScrollBox delay={isMobile ? .5 : 0} header={"Work experience"} />
+                            <ScrollBox delay={isMobile ? .5 : 0} header={"Work experience"} description={"Created"}/>
                         </GridItem>
                     </Grid>
                 </Flex>
