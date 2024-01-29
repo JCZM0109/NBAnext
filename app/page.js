@@ -48,7 +48,7 @@ export default function Home() {
             <Box className="homep-textbox">
 
               <Text className="homep-textb">
-                Welcome to my site! Made primarily to practice, not gonna lie. My name is Juan Camilo Zambrano Meza, I'm an Electronic Engineer guided to Networks and Telecommunications. I will be getting data from a NBA API to show some of the teams' general info. You will have to register and log in to access the website, and you can find more features within! Go on, select an option below:
+                Welcome to my site! Made primarily to practice, not gonna lie. My name is Juan Camilo Zambrano Meza, I will be getting data from an NBA API to show some of the teams' general info. You will have to register and log in to access the website, and you can find more features within! Go on, select an option below:
               </Text>
 
             </Box>

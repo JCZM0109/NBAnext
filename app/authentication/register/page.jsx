@@ -1,17 +1,13 @@
 'use client'
-import { getData, getTeamList } from "@/app/services";
+
 import {
     Box,
-    Flex,
     FormControl,
     Heading,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     Input,
     Select,
     Button,
-    Center
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
