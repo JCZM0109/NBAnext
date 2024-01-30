@@ -54,20 +54,9 @@ export default function AboutMePage() {
                         <GridItem>
                             <ScrollBox delay={isMobile ? .5 : 0} href={"https://smiledc-miami.com/"} header={"Smile Design Center"} description={"Created a landing page for a odontological practice located in Miami, FL"} />
                         </GridItem>
-                        <GridItem>
-                            <ScrollBox header={"Pr"} />
-                        </GridItem>
-                        <GridItem>
-                            <ScrollBox delay={isMobile ? .5 : 0} header={"Workexperience"} description={"Created"} />
-                        </GridItem>
-                        <GridItem>
-                            <ScrollBox header={"Education"} />
-                        </GridItem>
-                        <GridItem>
-                            <ScrollBox delay={isMobile ? .5 : 0} header={"Work experience"} description={"Created"}/>
-                        </GridItem>
                     </Grid>
                 </Flex>
+                <Box className="footer-box"/>
             </Container>
         </>
     )
