@@ -26,8 +26,15 @@
 @media (max-width: 576px) {
 
     .box-aboutme {
-        width: 250px;
-        height: 100px;
+        width: 90%;
+        height: auto;
+    }
+    .header-boxscroll {
+        font-size: 19px;
+    }
+    .textsb {
+        font-size: 15px;
+        text-align: justify;
     }
 
 }

@@ -36,7 +36,7 @@ export default function ScrollBox({ delay, header, description, href }) {
     }} ref={exRef} transition={{ duration: .5, delay: delay }}>
         <Heading className="header-boxscroll">{header}</Heading>
         <Box className="box-textsb">
-            <Text color="white"> {description} </Text>
+            <Text color="white" className="textsb"> {description} </Text>
         </Box>
         <Button className="button-sb">
             <a href={href}>Take me there!</a>
