@@ -1,6 +1,6 @@
 import axios from "axios";
 
-
+const apiKey = process.env.RAPID_API_KEY;
 
 export const getAllPlayers = async (team, season) => {
     
@@ -13,7 +13,7 @@ export const getAllPlayers = async (team, season) => {
           season: {season}
         },
         headers: {
-          'X-RapidAPI-Key': 'db53ce0518msh9435c1b8c9acd47p11798fjsn2e96c9776efb',
+          'X-RapidAPI-Key': apiKey,
           'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
         }
       };
