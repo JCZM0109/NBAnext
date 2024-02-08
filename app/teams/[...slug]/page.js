@@ -66,7 +66,6 @@ export default function TeamPage({ params }) {
     const router = useRouter();
     const { data: session, status } = useSession()
     const [teamInfo, setTeamInfo] = useState({});
-    const [teamIdApi, setTeamIdApi] = useState(0)
     const [playersInfo, setPlayersInfo] = useState({});
     const [selectedSeason, setSelectedSeason] = useState("2022")
 
@@ -81,16 +80,16 @@ export default function TeamPage({ params }) {
     };
 
     const fetchPlayersInfo = async () => {
-        // const teamIdApi = await getTeamId(teamInfo.abbreviation);
 
         const teamIdApi2 = await getTeamId(teamInfo.abbreviation);
-        setTeamIdApi(teamIdApi2)
+        
+        const infoPlayers = await getAllPlayers(teamIdApi2, selectedSeason)
 
-
-        // const playersInfo = await getAllPlayers(teamIdApi, selectedSeason);
-        console.log(teamIdApi2, teamIdApi)
+        setPlayersInfo(infoPlayers)
 
     };
+
+    console.log(playersInfo)
 
     const handleSignOut = async () => {
         const { error } = await signOut({ redirect: false })
@@ -109,6 +108,10 @@ export default function TeamPage({ params }) {
     useEffect(() => {
         fetchPlayersInfo()
     }, [teamInfo])
+
+    useEffect(() => {
+        fetchPlayersInfo()
+    }, [selectedSeason])
 
     const userTeam = session?.user?.team || "";
 

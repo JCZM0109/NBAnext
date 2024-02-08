@@ -127,7 +127,7 @@ export default function MatchesTable({ teamId, season }) {
                         </TableBody>
                     </Table>
                     <TablePagination
-                        count={totalRows}
+                        count={totalRows || 0}
                         component="div"
                         page={page - 1}
                         onPageChange={handlePageChange}
