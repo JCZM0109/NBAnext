@@ -34,8 +34,8 @@ export const getAllPlayers = async (team, season) => {
         method: 'GET',
         url: 'https://api-nba-v1.p.rapidapi.com/players',
         params: {
-          team: {team},
-          season: {season}
+          team: team,
+          season: season
         },
         headers: {
           'X-RapidAPI-Key': apiKey,
@@ -45,5 +45,5 @@ export const getAllPlayers = async (team, season) => {
 
     const response = await axios.request(optionsP)
 
-    return response.response
+    return response.data.response
 };
