@@ -1,6 +1,6 @@
 'use client'
 
-import { getMatchesByTeam } from "@/app/services";
+import { getGamesByTeam, getMatchesByTeam, getTeamId } from "@/app/services";
 import { useEffect, useRef, useState } from "react";
 import { TablePagination, ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
 
@@ -50,9 +50,10 @@ export default function MatchesTable({ teamId, season }) {
     const table_matches = useRef();
 
     const fetchTeamMatches = async () => {
-        const matchesData = await getMatchesByTeam(teamId, page, season)
-        setTeamMatches(matchesData.data);
-        setTotalRows(matchesData.meta.total_count)
+        
+        const matchesData = await getGamesByTeam(teamId, season)
+        setTeamMatches(matchesData);
+        setTotalRows(matchesData.length)
     }
 
     const handlePageChange = (event, newPage) => {
@@ -69,9 +70,9 @@ export default function MatchesTable({ teamId, season }) {
     const rows = [
         teamMatches.map((match, key) => {
             
-            const editedDate = match.date.slice(0, match.date.indexOf("T"));
+            const editedDate = match.date.start.slice(0, match.date.start.indexOf("T"));
             
-            return createData(match.home_team.full_name, match.visitor_team.full_name, `${match.home_team_score}-${match.visitor_team_score}`, `${editedDate}`)
+            return createData(match.teams.home.name, match.teams.visitors.name, `${match.scores.home.points}-${match.scores.visitors.points}`, `${editedDate}`)
         })
     ];
 
@@ -82,8 +83,12 @@ export default function MatchesTable({ teamId, season }) {
     }, [])
 
     useEffect(() => {
-        fetchTeamMatches()
-    }, [page])
+        console.log(teamMatches)
+    }, [teamMatches])
+
+    // useEffect(() => {
+    //     fetchTeamMatches()
+    // }, [page])
 
     useEffect(() => {
         fetchTeamMatches()
@@ -149,23 +154,3 @@ export default function MatchesTable({ teamId, season }) {
 
 
 
-
-
-
-
-
-
-
-
-
-{/* <ThemeProvider theme={MuiTheme}>
-                <DataGrid
-                    rows={flattenedRows}
-                    columns={columns}
-                    initialState={{
-                        pagination: {
-                            paginationModel: { page: 0, pageSize: 25 },
-                        },
-                    }}
-                />
-            </ThemeProvider> */}

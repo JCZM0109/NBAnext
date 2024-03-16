@@ -67,7 +67,8 @@ export default function TeamPage({ params }) {
     const { data: session, status } = useSession()
     const [teamInfo, setTeamInfo] = useState({});
     const [playersInfo, setPlayersInfo] = useState({});
-    const [selectedSeason, setSelectedSeason] = useState("2022")
+    const [selectedSeason, setSelectedSeason] = useState("2022");
+    const [temIdApi, setTemIdApi2] = useState(0)
 
 
 
@@ -76,14 +77,17 @@ export default function TeamPage({ params }) {
 
     const fetchTeamData = async () => {
         const teamData = await getSpecificTeam(teamId);
-        setTeamInfo(teamData)
+        console.log(teamData.data)
+        setTeamInfo(teamData.data)
     };
 
     const fetchPlayersInfo = async () => {
-
-        const teamIdApi2 = await getTeamId(teamInfo.abbreviation);
         
-        const infoPlayers = await getAllPlayers(teamIdApi2, selectedSeason)
+        const teamIdApi2 = await getTeamId(teamInfo.abbreviation);
+        console.log(teamIdApi2)
+        setTemIdApi2(teamIdApi2);
+
+        const infoPlayers = await getAllPlayers(temIdApi, selectedSeason)
 
         setPlayersInfo(infoPlayers)
 
@@ -109,6 +113,7 @@ export default function TeamPage({ params }) {
         fetchPlayersInfo()
     }, [teamInfo])
 
+
     useEffect(() => {
         fetchPlayersInfo()
     }, [selectedSeason])
@@ -131,7 +136,7 @@ export default function TeamPage({ params }) {
                     <Box padding="10px">
                         <Heading size={{ base: "lg", lg: "2xl" }} color="black">{teamInfo.name}</Heading>
                     </Box>
-                    {isFavTeam && <FavoriteTeam />}
+                    {/* {isFavTeam && <FavoriteTeam />} */}
                 </Flex>
                 <Box className="box-buttonso">
                     <Button size={{ base: "xs", sm: "sm", lg: "lg" }} onClick={handleSignOut}>Sign Out</Button>
@@ -157,7 +162,7 @@ export default function TeamPage({ params }) {
                         </Select>
                     </form>
                 </Box>
-                <MatchesTable teamId={teamId} season={selectedSeason} />
+                <MatchesTable teamId={temIdApi} season={selectedSeason} />
             </Container>
         </>
     )

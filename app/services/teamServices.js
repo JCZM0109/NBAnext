@@ -1,21 +1,40 @@
 import axios from "axios";
 
-
+const authorizationKey = process.env.NEXT_PUBLIC_AUTHORIZATION;
 
 
 export const getData = async () => {
 
-    const response = await axios.get("https://www.balldontlie.io/api/v1/teams");
-    // console.log(response.data.data[0])
-    return response.data
-    // return response.data
+    const optionsP = {
+        method: 'GET',
+        url: 'https://api.balldontlie.io/v1/teams',
+        headers: {
+          'Authorization': authorizationKey,
+        }
+      };
+      try {
+        const response = await axios.request(optionsP)
+        return response.data
+      } catch (error) {
+        console.error(error);
+      }
 };
 
 export const getSpecificTeam = async (id) => {
     
-    const response = await axios.get(`https://www.balldontlie.io/api/v1/teams/${id}`)
-
-    return response.data
+    const optionsP = {
+        method: 'GET',
+        url: `https://api.balldontlie.io/v1/teams/${id}`,
+        headers: {
+          'Authorization': authorizationKey,
+        }
+      };
+      try {
+        const response = await axios.request(optionsP)
+        return response.data
+      } catch (error) {
+        console.error(error);
+      }
 };
 
 export const getMatchesByTeam = async (id, page, season) => {
