@@ -11,7 +11,7 @@ export const getTeamId = async (abb) => {
   const options = {
     method: 'GET',
     url: 'https://api-nba-v1.p.rapidapi.com/teams',
-    params: {code: abb},
+    params: { code: abb },
     headers: {
       'X-RapidAPI-Key': apiKey,
       'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
@@ -27,23 +27,45 @@ export const getTeamId = async (abb) => {
 }
 
 export const getAllPlayers = async (team, season) => {
-    
+
 
   //options used to fetch list of players
-    const optionsP = {
-        method: 'GET',
-        url: 'https://api-nba-v1.p.rapidapi.com/players',
-        params: {
-          team: team,
-          season: season
-        },
-        headers: {
-          'X-RapidAPI-Key': apiKey,
-          'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
-        }
-      };
+  const optionsP = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/players',
+    params: {
+      team: team,
+      season: season
+    },
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+    }
+  };
 
-    const response = await axios.request(optionsP)
+  const response = await axios.request(optionsP)
 
-    return response.data.response
+  return response.data.response
 };
+
+export const getGamesByTeam = async (team, season) => {
+  const optionsP = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/games',
+    params: {
+      team: team,
+      season: season
+    },
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+      'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+    }
+  }
+  try {
+    const response = await axios.request(optionsP)
+    return response.data.response
+  } catch (error) {
+    console.error(error);
+  }
+
+}
