@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body>
         <ChakraProviders>
           <AuthProvider>
-            <AnimatePresence mode="wait" initial="false">
+            <AnimatePresence mode="wait">
             {children}
             </AnimatePresence>
           </AuthProvider>
