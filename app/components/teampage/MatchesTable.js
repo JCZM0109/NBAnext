@@ -78,9 +78,9 @@ export default function MatchesTable({ teamId, season }) {
 
     const flattenedRows = rows.flat();
 
-    useEffect(() => {
-        fetchTeamMatches()
-    }, [])
+    // useEffect(() => {
+    //     fetchTeamMatches()
+    // }, [])
 
     useEffect(() => {
         console.log(teamMatches)

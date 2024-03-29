@@ -17,7 +17,6 @@ import AboutMe from "./components/misc/AboutMe"
 
 export default function Home() {
 
-
   return (
     //Basicamente se define un container para toda la pagina el cual tiene un flex vertical adentro. 
       <Container className="homep-container">
@@ -73,6 +72,6 @@ export default function Home() {
           </Flex>
           </motion.div>
         <AboutMe indi={true}/>
-      </Container >
+      </Container>
   )
 }
