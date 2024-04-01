@@ -7,8 +7,8 @@ export default function AboutMeLayout({ children }) {
 
     return (
         <motion.div
-            initial={{ opacity: 0, x: -5000, scale: 0.1 }}
-            animate={{ scale: [.5, 1], opacity: 1, x: 0}}
+            initial={{ opacity: 0, x: -5000 }}
+            animate={{ scale: [.2, 1], opacity: 1, x: 0}}
             transition={{
                 duration: 1.5,
             }}
